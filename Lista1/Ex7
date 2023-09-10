@@ -1,0 +1,41 @@
+// SEMANA 3: 14/08
+
+/* 7. Construa um programa que leia dois valores inteiros e escreve na tela:
+ * a) a soma
+ * b) a diferença
+ * c) a média
+ * d) a distância (valor absoluto da diferença)
+ * e) o maior dos dois (use maior = (a+b+|a−b|)/2)
+ * f) o menor dos dois (use menor = (a+b-|a−b|)/2)
+*/
+
+import java.util.Scanner;
+
+public class Ex7
+{
+   public static void maind (String args[]) {
+       Scanner in = new Scanner(System.in);
+       int a, b;
+       double soma, diferenca, media, distancia, maior, menor;
+       
+       System.out.print("\fDigite o primeiro valor: ");
+       a = in.nextInt();
+       
+       System.out.print("Digite o segundo valor: ");
+       b = in.nextInt();
+       
+       soma = a + b;
+       diferenca = a - b;
+       media = soma/2;
+       distancia = Math.abs(diferenca);
+       maior = (soma + distancia)/2;
+       menor = (soma - distancia)/2;
+       
+       System.out.println("A soma é: " + soma);
+       System.out.println("A diferenca é: " + diferenca);
+       System.out.println("A média é: " + media);
+       System.out.println("A distancia é: " + distancia);
+       System.out.print("O maior é: " + maior);
+       System.out.print("O menor é: " + menor);
+   }
+}
