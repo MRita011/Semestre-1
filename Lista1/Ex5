@@ -1,0 +1,21 @@
+// SEMANA 3: 14/08
+// 5. Implemente um programa que leia um valor n, calcule e escreva n2, n3 e n4.
+   
+import java.util.Scanner;
+
+public class Ex5
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner (System.in);
+        double n;
+        
+        System.out.print("\fDigite um valor qualquer: ");
+        n = in.nextDouble();
+        
+        //System.out.print("O número ao quadrado é " + Math.pow(n, 2) + ", número ao cubo é " + Math.pow(n,3) + ", número elevado a 4 é " + Math.pow(n, 4));
+        System.out.println("O número ao quadrado é: " + Math.pow(n,2));
+        System.out.println("O número ao cubo é: " + Math.pow(n,3));
+        System.out.println("O número elevado a quatro é: " + Math.pow(n,4));  
+    }
+
+}
