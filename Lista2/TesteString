@@ -1,0 +1,72 @@
+// SEMANA 5: 01/09 - INTRODUÇÃO A STRING
+
+import java.util.Scanner;
+public class TesteString
+{
+    public static void main (String agrs[]) {
+        Scanner in = new Scanner (System.in);
+        System.out.print("\fDigite uma palavra: ");
+        String palavra = in.nextLine();
+
+        if (!palavra.isEmpty()) { // retorna true se a palavra não é vazia
+
+            System.out.print("Digite a posição da String a ser pesquisada: ");
+            int posicao = in.nextInt();
+
+            if (posicao < palavra.length() && posicao >= 0) //Length = retorno do tamanho da string
+                System.out.println("O caractere da posição é " + posicao + " é: " + palavra.charAt(posicao));
+            //charAt(int) retorna o conteúdo da posição do length. (int) é a posição 
+            else
+                System.out.println("Essa posição não existe.");
+
+            System.out.print("Digite uma parte a ser pesquisada: ");
+            String parte = in.nextLine();
+            parte = in.nextLine();  //Bug do java, o "nextLine" passa pra próxima linha e ignora o comando
+
+            if (palavra.startsWith(parte))
+                System.out.print("A palavra começa com: " + parte);
+            else 
+                System.out.print("A palavra não começa com: " + parte);
+
+            System.out.println("Digite uma parte a ser pesquisada: ");
+            String fim = in.nextLine();
+
+            if (palavra.endsWith(fim))
+                System.out.println("A palavra termina com: " + fim);
+            else 
+                System.out.println("A palavra não termina com: " + fim);
+
+            System.out.println("Digite o pedaço da string que deseja pesquisar: ");
+            String pedaco = in.nextLine();
+
+            if (palavra.contains(pedaco)) // contains --> verifica se a string tem o parâmetro
+                System.out.println("A palavra " + palavra +" contém o pedaço: " + pedaco);
+            else
+                System.out.println("A palavra " + palavra + " não contém o pedaço: " + pedaco);
+        }
+        else
+            System.out.print("A palavra é vazia.");
+
+        // Teste compare to -- compara duas palavras
+        System.out.print("Digite duas palavras: ");
+        String outraPalavra = in.nextLine();
+
+        if (palavra.compareToIgnoreCase(outraPalavra) == 0) // não vem outra antes (a comparação é em ordem alfabética)
+            System.out.print("São iguais");
+        else if (palavra.compareToIgnoreCase(outraPalavra) > 0) // tem antes
+            System.out.print("OutraPalavra vem antes da palavra");
+        else
+            System.out.println("Palavra vem antes de OutraPalavra");
+    }
+}
+
+/* MÉTODOS INTERESSANTES (cata depois):
+ * CharAt: Retorna o char de uma posição específica da string
+ * CompareTo: 
+ * Concat
+ * Contains
+ * endswith/startswith
+ * toString
+ * toUpperCase
+ * trim
+ */
