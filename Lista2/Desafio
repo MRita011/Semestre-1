@@ -1,0 +1,48 @@
+/* SEMANA 06: 06/09
+ *  1) Faça um programa que lê um número de 1 a 7 e informe o dia da semana correspondente.
+ */
+
+import java.util.Scanner;
+
+public class Desafio {
+    public static void main (String agrs[]) {
+        Scanner in = new Scanner (System.in);
+        int dia;
+        
+        System.out.print("\fDigite um número para o dia da semana: ");
+        dia = in.nextInt();
+
+        switch (dia) {
+            case 1: 
+                System.out.print("O dia é domingo.");
+                break;
+
+            case 2:
+                System.out.print("O dia é segunda-feira.");
+                break;
+
+            case 3:
+                System.out.print("O dia é terça-feira.");
+                break;
+
+            case 4:
+                System.out.print("O dia é quarta-feira.");
+                break;
+
+            case 5:
+                System.out.print("O dia é quinta-feira.");
+                break;
+
+            case 6:
+                System.out.print("O dia é sexta-feira.");
+                break;
+
+            case 7:
+                System.out.print("O dia é sábado.");
+                break;
+
+            default:
+                System.out.print("O número digitado é inválido.");
+        }
+    }
+}
