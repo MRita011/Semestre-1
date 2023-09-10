@@ -1,0 +1,32 @@
+// SEMANA 3: 18/08
+
+/* Faça um programa que leia a capacidade (em litros) do tanque de um
+ * carro, o seu consumo médio (km/litro) e a distância (em km) que esse
+ * carro precisa percorrer. O programa deve calcular e escrever tantas vezes
+ * será necessário parar para abastecer para que o carro consiga percorrer a distância informada.
+*/
+
+import java.util.Scanner;
+
+public class Ex20
+{
+    public static void main (String args[]) {
+    Scanner in = new Scanner(System.in);
+    
+    double capacidade, distancia, consumo, paradas;
+    
+    System.out.println("\fDigite a capacidade do tanque do seu carro (em Litros): ");
+    capacidade = in.nextDouble();
+    
+    System.out.println("Digite o consumo médio do seu carro (em km/litro): ");
+    consumo = in.nextDouble();
+    
+    System.out.println("Digite a distância a ser percorrida: ");
+    distancia = in.nextDouble();
+    
+    paradas = distancia/(capacidade * consumo);
+    
+    System.out.printf("\fVocê terá que realizar " + Math.ceil(paradas) + " paradas para abastecer."); 
+    //Math.ceil arredonda o valor de paradas para cima
+    }
+}
