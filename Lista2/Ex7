@@ -1,0 +1,44 @@
+//SEMANA 5: 30/08
+
+/* Implemente um programa que determina o preço de venda dos produtos
+ * de uma loja conforme o preço de custo desses produtos. O programa deve
+ * ler o preço de custo e calcular o valor de venda conforme a tabela abaixo. 
+ *     
+ *   PREÇO DO CUSTO | PREÇO DE VENDA
+ *        <10       |    lucro 70%
+ *        >10       |    lucro 50%
+ *        >30       |    lucro 40%
+ *       =>50       |    lucro 30%
+ */
+
+import java.util.Scanner;
+
+public class Ex07 {
+    public static void main (String args[]) {
+        Scanner in = new Scanner (System.in);
+        double precoCusto;
+
+        System.out.print("\fDigite o valor de custo do produto: ");
+        precoCusto = in.nextDouble();
+
+        if (precoCusto < 10) {
+            System.out.print("O lucro é de 70%.");
+            System.out.print("O preço final é: " + (precoCusto + (precoCusto * 0.7)));
+        }
+
+        else if (precoCusto < 30) {
+            System.out.print("O lucro é de 50%.");
+            System.out.print("O preço final é: " + (precoCusto + (precoCusto * 0.5)));
+        }
+
+        else if (precoCusto < 50) {
+            System.out.print("O lucro é de 40%");
+            System.out.print("O preço final é: " + (precoCusto + (precoCusto * 0.4)));
+        }
+
+        else {
+            System.out.print("O lucro é de 30%.");
+            System.out.print("O preço final é: " + (precoCusto + (precoCusto * 0.3)));
+        }
+    }
+}
