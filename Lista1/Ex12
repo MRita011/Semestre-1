@@ -1,0 +1,46 @@
+// SEMANA 3: 16/08
+
+/* Faça um programa que leia uma quantia inteira em R$ e decompõe essa quantia na menor quantidade de 
+ * notas de 100, 50, 20, 10, 5, 2 e 1. Por exemplo, se o usuário informar R$ 236 como entrada, o programa deve exibir:
+ 
+ * 2 nota(s) de 100
+ * 0 nota(s) de 50
+ * 1 nota(s) de 20
+ * 1 nota(s) de 10
+ * 1 nota(s) de 5
+ * 0 nota(s) de 2
+ * 1 moeda(s) de 1
+ */
+
+import java.util.Scanner;
+
+public class Ex12
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner(System.in); 
+        
+        int notas, notasTotais, n100, n50, n20, n10, n5, n2, n1;
+        
+        System.out.print("\fDigite a quantia em R$: ");
+        notas = in.nextInt();
+        
+        n100 = notas/100;
+        
+        n50 = (notas % 100)/ 50;
+        
+        n20 = (notas % 100)/20;
+        
+        n10 = notas % 100 % 50 % 20 % 10;
+        
+        n5 = notas % 100 % 50 % 20 % 10 % 5;
+        
+        n1 = (notas % 100 % 50 % 20 % 10 % 5)/1;
+        
+        System.out.println(n100 + " notas de R$100,00");
+        System.out.println(n50  + " notas de R$50,00");
+        System.out.println(n20  + " notas de R$20,00");
+        System.out.println(n10  + " notas de R$10,00");
+        System.out.println(n5   + " notas de R$05,00");
+        System.out.println(n1   + " moedas de R$01,00");
+    }
+}
