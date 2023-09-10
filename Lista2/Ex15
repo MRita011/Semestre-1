@@ -1,0 +1,35 @@
+/* SEMANA 5: 30/08
+ 
+ * Implemente um programa que leia 3 valores reais (n1, n2 e n3) e um valor
+ * inteiro (opcao). O programa deve escrever os valores n1, n2 e n3 em uma
+ * determinada ordem, a qual é definida pelo valor de opcao.
+     * a) Se opcao for 1, o programa deve escrever os valores em ordem crescente.
+     * b) Se opcao for 2, o programa deve escrever os valores em ordem decrescente.
+     * c) Se opcao for 3, o maior deve ser escrito entre os demais.
+ */
+
+import java.util.Scanner;
+
+public class Ex15 {
+    public static void main (String args[]) {
+        Scanner in = new Scanner (System.in);
+        double n1, n2, n3;
+        int opcao;
+        //int n4;
+        
+        System.out.print("\fDigite um valor real para n1: ");
+        n1 = in.nextDouble();
+        
+        System.out.print("fDigite um valor real para n2: ");
+        n2 = in.nextDouble();
+        
+        System.out.print("fDigite um valor real para n3: ");
+        n3 = in.nextDouble();
+        
+        System.out.print("\fDigite 1 para a ordem crescente. 2 para ordem descrescente. 3 para o maior valor ficar entre os demais.");
+        opcao = in.nextInt();
+        
+     
+        
+    }
+}
