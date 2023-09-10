@@ -1,0 +1,48 @@
+//SEMANA 4: 21/08
+
+/* Implemente um programa que calcula o volume de uma garrafa. O casco de uma garrafa aproxima-se a 
+ * dois cilindros de raios r1 e r2 e de alturas h1 e h2, unidos por um cone de altura h3. 
+ * ao usuário os dados necessários, calcule e escreva o volume da garrafa, sabendo que o volume
+ * de um cilíndro é calculado por vcl = πr2h
+ * e que o volume de um cone é dado por vcn = π ((r1^2 + r2 * r2 + r2^2) * h)/3
+ */
+
+import java.util.Scanner;
+public class Ex17
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner (System.in);
+
+        double volumeDaGarrafa, vcl3, vcl1, vcl2;
+        double r1, r2, h1, h2, h3;
+
+        System.out.println("\fDigite o valor do raio 1: ");
+        r1 = in.nextDouble();
+
+        System.out.println("Digite o valor do raio 2: ");
+        r2 = in.nextDouble();
+
+        System.out.println("Digite o valor da altura 1: ");
+        h1 = in.nextDouble();
+
+        System.out.println("Digite o valor da altura 2: ");
+        h2 = in.nextDouble();
+
+        System.out.println("Digite a altura do cone:" );
+        h3 = in.nextDouble();
+
+        //vcl = πr^2h
+        vcl1 = Math.PI * Math.pow(r1, 2) * h1;
+        vcl2 = Math.PI * Math.pow(r2, 2) * h2;
+
+        System.out.printf("Esse é o volume do 1º cilindro: %.2f" , vcl1);
+        System.out.printf("Esse é o volume do 2º cilindro: %.2f" , vcl2);
+
+        //vcn = π ((r1^2 + r2 * r2 + r2^2) * h)/3
+        vcl3 = Math.PI * (((Math.pow(r1,2) + r1 * r2 + Math.pow(r2,2)) * h3)/3);
+        System.out.printf("Esse é o volume do cone: %.2f" , vcl3);
+
+        volumeDaGarrafa = vcl1 + vcl2 + vcl3;
+        System.out.printf("\fEsse é o volume da garrafa: %.2f" , volumeDaGarrafa);
+    }
+}
