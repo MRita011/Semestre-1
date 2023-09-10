@@ -1,0 +1,42 @@
+//SEMANA 5: 30/08
+
+/* Elabore um programa que leia uma nota do intervalo [0; 10] (garanta isso),
+ * verifique e escreva o conceito correspondente conforme a tabela abaixo:
+
+ *   NOTA | CONCEITO
+ *  9 a 10|    A
+ * 7 a 8,9|    B
+ * 5 a 6,9|    C
+ * 3 a 4,9|    D
+ *   <3   |    E
+ */
+import java.util.Scanner;
+
+public class Ex10 {
+    public static void main (String args[]){
+        Scanner in = new Scanner(System.in);
+        double nota;
+
+        System.out.print("\fDigite uma nota dentro do intervalo [0; 10].");
+        nota = in.nextDouble();
+
+        if (nota >= 0 && nota <= 10) {
+            if (nota < 3) 
+                System.out.print("O conceito da nota é E.");
+
+            else if (nota >= 3 && nota < 4.9) 
+                System.out.print("O conceito é D.");
+
+            else if (nota >= 5 && nota < 6.9)
+                System.out.print("O conceito é C.");
+
+            else if (nota >= 7 && nota < 8.9)
+                System.out.print("O conceito da nota é B.");
+
+            else 
+                System.out.print("O conceito da nota é A.");
+        }
+        else
+            System.out.print("A nota é inválida.");
+    }
+}
