@@ -1,0 +1,26 @@
+//SEMANA 3: 18/08
+
+/* Uma empresa de bolinhas de gude precisa de um programa que calcula
+ * a quantidade de caixas necessárias para embalar as bolinhas. A empresa
+ * trabalha com caixas cuja capacidade é de 100 bolinhas. Faça um programa
+ * que leia a quantidade de bolinhas, calcule e escreva a quantidade de caixas
+ * necessárias para embalar as bolinhas.
+*/
+
+import java.util.Scanner;
+
+public class Ex21
+{
+    public static void main (String args[]) {
+    
+        Scanner in = new Scanner(System.in);
+        int caixas, bolinhas;
+        
+        System.out.print("\fDigite quantas bolinhas você tem: ");
+        bolinhas = in.nextInt();
+        
+        caixas = bolinhas%100;
+        
+        System.out.print("Será necessário o uso de " + caixas + " caixas.");
+    }
+}
