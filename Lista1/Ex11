@@ -1,0 +1,34 @@
+//SEMANA 4: 21/08
+
+/* Implemente um programa que lê um (único) valor inteiro de 4 dígitos. A
+ * seguir, esse programa deve escrever um inteiro que corresponde ao valor
+ * lido na ordem inversa. (Exemplo: 1234 → 4321)
+*/
+
+import java.util.Scanner;
+
+public class Ex11
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner(System.in);
+        int entrada, milhar, centena, dezena, unidade, inverso;
+
+        System.out.print("\fDigite um número inteiro de 4 dígitos: ");
+        entrada = in.nextInt();
+
+        milhar = entrada/1000;
+        centena = (entrada % 1000)/100;
+        dezena  = (entrada % 1000 % 100)/10;
+        unidade = entrada % 1000 % 100 % 10;
+        
+        inverso = (unidade * 1000) + (dezena * 100) + (centena * 10) + milhar;
+
+        /* System.out.println("Essa é o milhar " + milhar);
+         * System.out.println("Essa é a centena " + centena);
+         * System.out.println("Essa é a dezena " + dezena);
+         * System.out.println("Essa é a unidade " + unidade);
+         */
+
+        System.out.println("Esse é o inverso " + inverso);
+    }
+}
