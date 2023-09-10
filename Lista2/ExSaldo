@@ -1,0 +1,61 @@
+/* SEMANA 06: 06/09
+ * 1) Ler saldo e mostrar um menu;
+ * 2) op1: mostrar saldo
+ * 3) op2: sacar valor e mostrar saldo;
+ * 4) op3: creditar um valor e mostrar o saldo 
+ * 5) Qualquer outro número inserido para o menu, mostrar msg de inválido.
+ */
+
+import java.util.Scanner;
+
+public class ExSaldo {
+    public static void main (String args[]) {
+        Scanner in = new Scanner (System.in);
+        double saldo, valor;
+        int menu;
+
+        System.out.println("\fDigite o saldo inicial da conta: ");
+        saldo = in.nextDouble();
+
+        System.out.println("Digite 1 para ver o seu saldo: ");
+        System.out.println("Digite 2 para sacar um valor: ");
+        System.out.println("Digite 3 para creditar um valor: ");
+
+        menu = in.nextInt();
+
+        switch (menu) {
+            case 1:
+                System.out.println("O saldo da conta é: " + saldo);
+                break;
+
+            case 2:
+                System.out.println("Digite um valor a ser sacado: ");
+                valor = in.nextDouble();
+
+                if (valor <= saldo) {
+                    saldo = saldo - valor;
+                    System.out.println("O valor do saldo após o valor é: " + saldo);
+                }
+                else 
+                    System.out.println("Saldo insuficiênte para o valor.");
+                break;
+
+            case 3: 
+                System.out.println("Digite um valor a ser depositado: ");
+                valor = in.nextDouble();
+
+                if (valor > 0) {
+                    saldo = saldo + valor;
+                    System.out.println("O saldo atual da conta é: " + saldo);
+                }
+                else
+                    System.out.println("Valor de depósito incorreto.");
+                break;
+                
+            default:
+                System.out.println("Opção inválida.");
+                break;
+
+        }
+    }
+}
