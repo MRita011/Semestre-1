@@ -1,0 +1,69 @@
+/* 4) Continuando o exercício 3, utilizando o comendo de seleção switch-case, imprima a data fornecida, 
+ * utilizando os inteiros para o dia e o ano. Para o mês, imprima o nome do mês. O resultado final deve 
+ * ficar como no exemplo: 6 de setembro de 2023.
+ */
+
+import java.util.Scanner;
+
+public class Ex4
+{
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("\fDigite uma data no formato 'DD/MM/AAAA': ");
+        String data = in.nextLine();
+
+        int dia, mes, ano; // Inicializamos com 0, caso a entrada seja inválida.
+        
+        if (data.matches("\\d{2}/\\d{2}/\\d{4}")) { // \\d é qualquer digito numerico, d{x} é a quantidade de caracteres a ser checadam / é a barra da data DD/MM/AAAA
+            dia = Integer.parseInt(data.substring(0, 2));
+            mes = Integer.parseInt(data.substring(3, 5));
+            ano = Integer.parseInt(data.substring(6));
+
+            System.out.println(
+                "\nDia extraído da data: " + dia +
+                "\nMes extraido da data: " + mes +
+                "\nAno extraido da data: " + ano
+            );
+            
+            switch(mes) {
+                case 1: System.out.print("\n" + dia + " de Janeiro de " + ano);
+                break;
+                
+                case 2: System.out.print("\n" + dia + " de Fevereiro de " + ano);
+                break;
+                
+                case 3: System.out.print("\n" + dia +  " de Março de " + ano);
+                break;
+                
+                case 4: System.out.print("\n" + dia +  " de Abril de " + ano);
+                break;
+                
+                case 5: System.out.print("\n" + dia +  " de Maio de " + ano);
+                break;
+                
+                case 6: System.out.print("\n" + dia +  " de Junho de " + ano);
+                break;
+                    
+                case 7: System.out.print("\n" + dia +  " de Julho de " + ano);
+                break;
+                
+                case 8: System.out.print("\n" + dia +  " de Agosto de " + ano);
+                break;
+                
+                case 9: System.out.print("\n" + dia +  " de Setembro de " + ano);
+                break;
+                
+                case 10: System.out.print("\n" + dia +  " de Outubro de " + ano);
+                break;
+                
+                case 11: System.out.print("\n" + dia +  " de Novembro de " + ano);
+                break;
+                
+                case 12: System.out.print("\n" + dia +  " de Dezembro de " + ano);
+                break;
+            }
+        }
+        else
+            System.out.println("Formato de data inválido!");
+    }
+}
