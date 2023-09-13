@@ -1,0 +1,33 @@
+//SEMANA 07: 13/09
+
+import java.util.Scanner;
+
+public class ExFor
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner (System.in);
+        double g1, me, tf, p1, p2, media, soma = 0;
+
+        for (int cont = 0; cont < 3; cont++) {
+            System.out.print("\fDigite a nota da P1: ");
+            p1 = in.nextDouble();
+
+            System.out.print("\nDigite a nota da P2: ");
+            p2 = in.nextDouble();
+
+            System.out.print("\nDigite a nota do Trabalho Final: ");
+            tf = in.nextDouble();
+
+            System.out.print("\nDigite a nota da media de exercícios: ");
+            me = in.nextDouble();
+
+            //G1 = (P1 + 2*P2 + T1 + 2*T2)/6
+            g1 = (p1 + 2 * p2 + me + 2 * tf)/6;
+            System.out.print("\nA média do aluno é: " + g1);
+
+            soma = soma + g1;
+        }
+        media = soma/30;
+        System.out.print("\nA média da turma é: " + media);
+    }
+}
