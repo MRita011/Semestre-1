@@ -1,0 +1,70 @@
+// SEMANA 07: 13/09. Correção do E2.
+
+import java.util.Scanner;
+
+public class E2Correcao
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner(System.in);
+
+        double n1, n2, n3, maior, menor, meio;
+        int menu;
+
+        System.out.print("\fDigite um valor para n1: ");
+        n1 = in.nextDouble();
+
+        System.out.print("\nDigite um outro valor para n2: ");
+        n2 = in.nextDouble();
+
+        System.out.print("\nDigite um outro valor para n3: ");
+        n3 = in.nextDouble();
+
+        System.out.print
+        (
+            "\nDigite 1: Ordem crescente" + 
+            "\nDigite 2: Ordem decrescente " +
+            "\nDigite 3: O maior no meio."
+        );
+        menu = in.nextInt();
+
+        //Descobrindo o maior valor
+        if (n1 > n2 && n1 > n3)
+            maior = n1;
+
+        else if (n2 > n1 && n2 > n3)
+            maior = n2;
+
+        else
+            maior = n3;
+
+        //Descobrindo o menor valor
+        if (n1 < n2 && n1 < n3)
+            menor = n1;
+
+        else if (n2 < n1 && n2 < n3)
+            menor = n2;
+
+        else 
+            menor = n3;
+
+        //Descobrindo o valor do meio
+        meio = (n1 + n2 + n3) - maior - menor;
+
+        switch(menu) {
+            case 1: 
+                System.out.println("Ordem crescente: " + menor + ", " + meio + ", " + maior);
+                break;
+
+            case 2: 
+                System.out.println("Ordem decrescente: " + maior + ", " + meio + ", " + menor);
+                break;
+
+            case 3:
+                System.out.println("Maior no meio: " + meio + ", " + maior + ", " + menor);
+                break;
+
+            default:
+                System.out.println("Valores inválidos!");
+        }
+    }
+}
