@@ -1,0 +1,44 @@
+/* SEMANA 07: 15/09
+ * Implemente um programa que lê 50 valores inteiros e positivos, calcule e escreva:
+ * (a) a média dos valores;
+ * (b) o maior deles;
+ * (c) o menor deles;
+ * (d) a quantidade de valores que estão no intervalo [0;10].
+ */
+
+import java.util.Scanner;
+
+public class Ex08 
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner(System.in);
+
+        int valor, intervalo = 0, soma = 0, menor = Integer.MAX_VALUE, maior = 0; // Variáveis iniciam em 0 para ter o que incrementar depois (ex: intervalo = 0, intervalo + 1; intervalo = 1)
+        double media;
+
+        for (int cont = 0; cont < 5; cont++) {
+            System.out.print("\fDigite um número inteiro positivo: ");
+            valor = in.nextInt();
+
+            soma = soma + valor; //soma acumula os valores de valor
+
+            if (valor > maior) // se o valor é maior do que maior (0), então o maior número é o próprio valor
+                maior = valor;
+
+            if (valor < menor) // Se valor for menor do que menor (que possui o maior valor dentro de si, logo o valor é sempre menor)
+                menor = valor;
+
+            if (valor >= 0 && valor <= 10) // se o valor for menor ou igual a 0 E menor igual a 10, o intervalo será incrementado
+                intervalo++;
+        }
+        media = soma/5; // A média será os valores acumulados do contador divididos pelo limite deles (5)
+
+        System.out.print
+        (
+            "\nO maior valor lido é: " + maior +
+            "\nO menor valor lido é: " + menor +
+            "\nO intervalo [0; 10] é: " + intervalo +
+            "\nO média dos valores é: "+ media
+        );
+    }
+}
