@@ -1,0 +1,28 @@
+/* SEMANA 07: 15/09
+ * Implemente um programa que leia um valor n e escreva todos os quadrados
+ * perfeitos menores que n. Exemplo : n=100, escreve 1, 4, 9, 16, 25, 36, 49, 81
+ */
+
+import java.util.Scanner;
+
+public class Ex05
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner (System.in);
+
+        int n, quadrado = 1;
+
+        System.out.print("\fDigite um número menor que 100: ");
+        n = in.nextInt();
+
+        while (quadrado <= n) {
+            System.out.println("\nO quadrado perfeito de " + quadrado + " é: " + (quadrado * quadrado));
+            quadrado ++;
+        }
+    }
+}
+
+/* for (int quadrado = 1; quadrado <= n; quadrado++) {
+    System.out.println("\nO quadrado perfeito de " + quadrado + " é: " + (quadrado * quadrado));
+    }
+*/
