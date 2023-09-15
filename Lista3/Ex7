@@ -5,7 +5,6 @@
 public class Ex07 
 {
     public static void main (String args[]) {
-        Scanner in = new Scanner (System.in);
         int cont = 0; // Declaramos o contador antes pra poder filtrar quantos valores serão divisíveis por 7
         
         System.out.print("\f");
