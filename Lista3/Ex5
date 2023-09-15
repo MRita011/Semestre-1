@@ -12,10 +12,10 @@ public class Ex05
 
         int n, quadrado = 1;
 
-        System.out.print("\fDigite um número menor que 100: ");
+        System.out.print("\fDigite a quantidade n de quadrado perfeitos que deseja mostrar: ");
         n = in.nextInt();
 
-        while (quadrado <= n) {
+        while (quadrado * quadrado <= n) {
             System.out.println("\nO quadrado perfeito de " + quadrado + " é: " + (quadrado * quadrado));
             quadrado ++;
         }
