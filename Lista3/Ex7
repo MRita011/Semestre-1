@@ -9,13 +9,15 @@ public class Ex07
     public static void main (String args[]) {
         Scanner in = new Scanner (System.in);
         int cont = 0; // Declaramos o contador antes pra poder filtrar quantos valores serão divisíveis por 7
+        
+        System.out.print("\f");
 
-        for (int v = 101; cont < 49; cont++) { 
+        for (int v = 101; cont < 50; v++) { 
             // Começamos em 101 para obter valores acima de 100.
             // Repetimos o laço de repetição até encontrarmos 50 valores divisíveis por 7.
 
             if (v % 7 == 0) { // Verificamos se o valor atual é divisível por 7.
-                System.out.print("\fOs valores são: " + v); // Se for, a gente imprime.
+                System.out.print("\n\nOs valores são: " + v); // Se for, a gente imprime.
                 cont++; // Incrementamos o contador de valores encontrados.
             }
         }
