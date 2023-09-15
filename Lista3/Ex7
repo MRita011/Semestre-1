@@ -2,8 +2,6 @@
  * Elabore um programa que escreve 50 valores acima de 100 que são divisiveis por 7.
  */
 
-import java.util.Scanner;
-
 public class Ex07 
 {
     public static void main (String args[]) {
