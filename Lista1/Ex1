@@ -1,0 +1,25 @@
+/* Teste o programa Java a seguir e indique a diferença entre as funções:
+ * round, floor e ceil. Para obter mais informações sobre as funções acesse
+ * também a Application Programming Interface (API) da classe Math
+ * (http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html).
+ */
+
+import java.util.Scanner;
+//Ex 2
+public class Funcoes 
+{
+    public static void main(String args[]){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Informe um valor real: ");
+
+        double valor = entrada.nextDouble();
+        System.out.println("Resultado de floor(" + valor+ ")=" + Math.floor(valor)); 
+        // Arredonda pra cima
+
+        System.out.println("Resultado de ceil(" + valor+ ")=" + Math.ceil(valor));
+        // Arredonda pra baixo 
+
+        System.out.println("Resultado de round(" + valor+ ")=" + Math.round(valor));
+        // Arredonda pro inteiro (positivo) mais próximo
+    }
+}
