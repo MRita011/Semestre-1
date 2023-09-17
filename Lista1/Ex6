@@ -1,0 +1,22 @@
+/* Faça um programa que converte de Fahrenheit para graus Celsius. O
+ * programa deve ler um valor em Fahrenheit, converter e escrever o valor
+ * correspondente em Celsius. Para realizar a conversão use a fórmula c = 5/9(f − 32).
+ */
+
+import java.util.Scanner;
+
+public class Ex6
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner (System.in);
+        double celsius, fahrenheit;
+
+        System.out.print("\fDigite a temperatura em F°: ");
+        fahrenheit = in.nextInt();
+
+        celsius = 5.0/9.0 * (fahrenheit - 32);
+        
+        System.out.printf("\nA conversão de " + fahrenheit + "°F é %.2f", celsius);
+        System.out.print("°C.");
+    }
+}
