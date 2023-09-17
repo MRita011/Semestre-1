@@ -1,0 +1,21 @@
+/* Faça um programa que lê a altura de uma pessoa em metros e a escreve
+ * em centímetros e em milímetros.
+ */
+
+import java.util.Scanner;
+
+public class Ex9 
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner (System.in);
+        double m, cm, mm;
+        
+        System.out.print("\fDigite a sua altura em m: ");
+        m = in.nextDouble();
+        
+        cm = m * 100;
+        mm = cm * 10;
+        
+        System.out.print("\nA altura " + m + " em centímetros é: " + cm + " e em milímetros é: " + mm);
+    }
+}
