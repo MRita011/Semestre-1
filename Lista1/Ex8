@@ -1,0 +1,32 @@
+/* Faça um programa que leia as dimensões de um terreno (largura e comprimento) 
+ * e a dimensões da casa (largura e comprimento) construída nesse
+ * mesmo terreno, o programa deve calcular e escrever a área livre existente no terreno.
+ */
+
+import java.util.Scanner;
+
+public class Ex8
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner(System.in);
+        double larguraTerreno, comprimentoTerreno, larguraCasa, comprimentoCasa, areaLivre, areaCasa;
+
+        System.out.print("\fInsira o comprimento do terreno: ");
+        comprimentoTerreno = in.nextDouble();
+
+        System.out.print("\nInsira a largura do terreno: ");
+        larguraTerreno = in.nextDouble();
+
+        System.out.print("\nInsira o comprimento da casa: ");
+        comprimentoCasa = in.nextDouble();
+
+        System.out.print("\nInsira a largura da casa: ");
+        larguraCasa = in.nextDouble();
+
+        areaCasa = larguraCasa * comprimentoCasa;
+        double terreno = larguraTerreno * comprimentoTerreno;
+        areaLivre = terreno - areaCasa;
+
+        System.out.print("\nA área livre é: " + areaLivre);
+    }
+}
