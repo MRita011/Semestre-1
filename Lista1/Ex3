@@ -1,0 +1,27 @@
+/* 3. O programa abaixo apresentará um erro de representação. Exibirá Diferenca =
+ * 0.07000000000000028 ao invés de Diferenca = 0.07. Sem modificar os
+ * tipos das variáveis, como podemos corrigir esse erro para que o programa
+ * exiba o resultado correto ?
+
+ * public class Exemplo {
+ *     public static void main(String args[]){
+ *         double valorDaCompra = 19.93;
+ *         double pagamento = 20.0;
+ *         double diferenca = pagamento - valorDaCompra;
+ *         System.out.println("Diferenca = " + diferenca);
+ *      }
+ *  } 
+ */
+
+public class Exemplo {
+    public static void main(String args[]){
+        double valorDaCompra = 19.93;
+        
+        double pagamento = 20.0;
+        
+        double diferenca = pagamento - valorDaCompra;
+        
+        System.out.printf("\fDiferenca = %.2f", diferenca);
+        // %.2f formata o número com 2 casas após a vírgula
+    }
+}
