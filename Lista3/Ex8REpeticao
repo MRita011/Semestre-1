@@ -1,0 +1,51 @@
+/* Implemente um programa que lê 50 valores inteiros e positivos, calcule e escreva:
+ * (a) a média dos valores;
+ * (b) o maior deles;
+ * (c) o menor deles;
+ * (d) a quantidade de valores que estão no intervalo [0;10].
+ */
+
+import java.util.Scanner;
+
+public class Ex8REpeticao
+
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner(System.in);
+        // O menor valor recebe o maior valor, o maior recebe zero
+        int valor, maior = 0, menor = Integer.MAX_VALUE, intervalo = 0, soma = 0;
+        double media;
+
+        // Loop para ler 5 valores
+        for (int cont = 0; cont < 5; cont++) {
+            System.out.print("\fDigite um numero inteiro e positivo: ");
+            valor = in.nextInt();
+
+            // Loop para garantir que o valor seja positivo
+            while (valor < 0) {
+                System.out.println("O valor deve ser positivo. Tente novamente.");
+            }
+
+            // Atualiza a soma dos valores
+            soma = soma + valor;
+
+            // Verifica se o valor é maior ou menor que os anteriores
+            if (valor > maior)
+                maior = valor;
+            if (valor < menor)
+                menor = valor;
+
+            // Verifica se o valor está no intervalo [0;10]
+            if (valor >= 0 && valor <= 10)
+                intervalo++;
+        }
+
+        // Calcula a média dos valores lidos
+        media = soma /5;
+
+        System.out.println("\nO maior numero lido é: "+ maior);
+        System.out.println("\nO menor numero lido é: "+ menor);
+        System.out.println("\nA quatidade de numeros no intervalo [0:10] é: "+ intervalo);
+        System.out.println("\nA média dos valores lidos é: "+ media);
+    }
+}
