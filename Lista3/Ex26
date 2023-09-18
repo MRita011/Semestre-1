@@ -1,0 +1,40 @@
+/* Em uma eleição presidencial existem quatro candidatos. Os votos são
+ * informados através de códigos. Os dados utilizados para a contagem dos
+ * votos obedecem a seguinte codificação:
+• 1,2,3,4 = voto para os respectivos candidatos;
+• 0 = voto branco;
+• qualquer valor diferente de 0 a 4 = voto nulo;
+
+Elabore um programa que leia o código do candidado em um voto. Calcule e escreva:
+
+• total de votos para cada candidato;
+• total de votos nulos;
+• total de votos em branco;
+
+Como finalizador do conjunto de votos, utilize valores negativos.
+ */
+
+import java.util.Scanner;
+public class Ex26 
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner (System.in);
+        int voto, c1, c2, c3, c4, branco, nulo;
+
+        // for(cont = 0; cont >= 0; cont++) {
+        do {
+            System.out.print
+            ( "\nDigite 1 para votar no canditado 1: " + 
+                "\nDigite 2 para votar no canditado 2: " + 
+                "\nDigite 3 para votar no canditado 3: " + 
+                "\nDigite 4 para votar no canditado 4: "
+            );
+            voto = in.nextInt();
+
+        } while (voto >= 0);
+
+     
+        
+    }
+    //}
+}
