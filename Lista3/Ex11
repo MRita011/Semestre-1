@@ -1,0 +1,26 @@
+/* Faça um programa que leia um valor inteiro e positivo 
+ * e escreva os divisores desse valor. 
+ */
+
+import java.util.Scanner;
+
+public class Ex11 
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner(System.in);
+        int valor;
+
+        do {
+            System.out.print("\fDigite um número inteiro positivo: ");
+            valor = in.nextInt();
+        }
+        while (valor <= 0);
+        
+        // O for vai repetir enquanto o divisor não for igual ao próprio valor
+        for (int div = 1; div <= valor; div++) {
+            // Se a divisão do valor pelo contador do for der resto 0, então o contador é um divisor de valor
+            if (valor % div == 0) 
+                System.out.println("O número " + div + " é um divisor de " + valor);
+        }
+    }
+}
