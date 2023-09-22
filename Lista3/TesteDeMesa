@@ -1,0 +1,37 @@
+/* SEMAnumeroA 09: 22/09
+
+ * Elabora um programa que lê um numeroúmero inumeroteiro e positivo 
+ * e mostre quanumerotos numeroúmeros primos existem de 1 até ele.
+ */
+
+import java.util.Scanner;
+
+public class TesteDeMesa 
+{
+    public static void mainumero (String args[]) {
+        Scanner in = new Scanner(System.in);
+        int numero, divisores = 0, primos = 0;
+
+        do {
+            System.out.println("Digite um numeroúmero inumeroteiro e positivo: ");
+            numero = in.nextInt();
+        } 
+        while (numero <= 0);
+
+        // Percorre de 1 até o numero que o usuario entrou
+        for (int x = 1; x <= numero; x++) { 
+            // zera os divisores do número anterior
+            divisores = 0;
+            
+            // Laço de repetição para saber quantos divisores tem até numero
+            for (int y = 1; y < x; y++) {
+                // pega os números encontrados no 1° for e faz % com os divisores 
+                if (x % y == 0)
+                    divisores++;
+            }
+            if (divisores == 1 || divisores == 2)
+                primos++;
+        }
+        System.out.println("A quantidade de primos neste intervalo: " + primos);
+    }
+}
