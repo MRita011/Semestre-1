@@ -1,0 +1,75 @@
+/* Em uma eleição presidencial existem quatro candidatos. Os votos são informados 
+ * através de códigos. Os dados utilizados para a contagem dos votos obedecem a seguinte codificação: 
+
+ * 1,2,3,4 = voto para os respectivos candidatos;
+ * 0 = voto branco; 
+ * qualquer valor diferente de 0 a 4 = voto nulo; 
+
+ * Elabore um programa que verifique como foram as eleições para uma dada cidade do país. 
+ * Para tal é esperado que o usuário digite o nome da cidade e quantos eleitores a cidade tem. 
+ * Para cada um dos eleitores da cidade o usuário deve informar o código do voto que deseja efetuar. 
+ * Quando concluidos os votos de cada cidade, o programa deve informar:
+ * total de votos para cada candidato; 
+ * total de votos nulos; 
+ * total de votos em branco; 
+ */
+
+import java.util.Scanner;
+
+public class E3
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner(System.in);
+
+        int c1 = 0, c2 = 0, c3 = 0, c4 = 0;
+        int voto = 0,branco = 0, nulo = 0, eleitores = 0; // (fiz em uma linha diferente pra poder ficar mais fácil de ler)
+        String cidade;
+
+        System.out.println("\fQual a cidade que você deseja realizar a eleição?");
+        cidade = in.nextLine();
+
+        System.out.println("\nQuantos eleitores de " + cidade + " irão votar?");
+        eleitores = in.nextInt();
+
+        for (int cont = 0; cont < eleitores; cont++) {
+
+            System.out.print
+            (   "\nDigite 0 para votar em branco: " +
+                "\nDigite 1 para votar no candidato 1: " + 
+                "\nDigite 2 para votar no candidato 2: " + 
+                "\nDigite 3 para votar no candidato 3: " + 
+                "\nDigite 4 para votar no candidato 4: "
+            );
+            voto = in.nextInt();
+
+            if (voto == 0) 
+                branco++;
+                
+            if (voto == 1) 
+                c1++;
+
+            if (voto == 2) 
+                c2++;
+
+            if (voto == 3) 
+                c3++;
+
+            if (voto == 4) 
+                c4++;
+            
+            else 
+                nulo++;
+        }
+        
+        System.out.print
+        (
+            "\nApuração da Votação na cidade de " + cidade + 
+            "\nCandidato 1: " + c1 + " votos." +
+            "\nCandidato 2: " + c2 + " votos." +
+            "\nCandidato 3: " + c3 + " votos." +
+            "\nCandidato 4: " + c4 + " votos." +
+            "\nForam contabilizados " + branco + " votos em branco." +
+            "\nPor fim, foram contabilizados " + nulo + " votos nulos."
+        );
+    }
+}
