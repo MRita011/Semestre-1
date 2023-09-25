@@ -1,0 +1,31 @@
+/* O trecho de código abaixo implementa uma validação (crítica ou ainda
+ * consistência) de dados. É esperado um número inteiro e positivo para a
+ * variável valor. Reimplemente esse código usando a instrução while.
+
+ * import java.util.Scanner;
+ * public class Exercicio{
+ *     public static void main(String args[]){
+ *         Scanner entrada = new Scanner(System.in);
+ *         int valor;
+ *         do{
+ *             System.out.println(“Informe um valor positivo: “);
+ *             valor = entrada.nextInt();
+ *          }while(valor<=0);
+ *      }
+ *  }
+ */
+
+import java.util.Scanner;
+
+public class Ex1 {
+    public static void main(String args[]){
+        Scanner entrada = new Scanner(System.in);
+        int valor = 0;
+
+        while (valor <= 0) {
+            System.out.println("\nInforme um valor positivo: ");
+            valor = entrada.nextInt();
+        }
+        System.out.println("Valor positivo: " + valor);
+    }
+}
