@@ -1,0 +1,16 @@
+/* 4. Faça um programa que escreve os 100 primeiros 
+ * quadrados perfeitos (números naturais): 0, 1, 4, 9, 16,...
+ */
+
+public class Ex4 
+{
+    public static void main(String args[]) {
+        System.out.print("\fOs quadrados perfeitos são: ");
+        int quadrados = 0;
+        
+        for (int i = 0; i <= 100; i++) {
+            quadrados = i * i;
+            System.out.println(quadrados + "\n");
+        }
+    }
+}
