@@ -1,0 +1,32 @@
+// 3. Implemente um programa que soma todos os impares entre 500 e 700
+
+public class Ex3
+{
+    public static void main (String args[]) {
+        // Limpando o terminal
+        System.out.println("\f");
+
+        // Soma inicia em zero para acumular a soma dos n° impares. 
+        // Impar inicia em zero pra armazenar o numero impar de cada iteração
+        int soma = 0, impar = 0;
+
+        // Contando de 500 até 700
+        for (int i = 50; i <= 70; i++) {
+
+            // Divide os números encontrados entre 50 e 70 por 2. Se o resto != 0, o i é impar
+            if (i % 2 != 0) {
+                // Salvando o número ímpar
+                impar = i;
+
+                // Escreve os ímpares na tela
+                System.out.println(impar);
+
+                // Soma é atualizada adicionando o valor de impar a ela. 
+                // Isso acumula a soma dos números ímpares encontrados até agora.
+                soma = soma + impar;
+            }
+        }
+        // Imprime a soma total dos números ímpares encontrados.
+        System.out.println("\nA soma dos valores é: " + soma);
+    }
+}
