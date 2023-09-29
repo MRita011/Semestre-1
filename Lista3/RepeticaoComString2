@@ -1,5 +1,4 @@
 /* SEMANA 09: 29/09
- * 
  * Lê uma string (frase) e conta quantas frases aparecem;
  */
 
@@ -10,17 +9,18 @@ public class Ex2
     public static void main (String args[]) {
         Scanner in = new Scanner (System.in);
         String frase;
-        int cont = 1; // começa em 1 para contar a última palavra
-        
+        int cont = 0; // começa em 1 para contar a última palavra
+
         do {
             System.out.println("Digite uma frase: ");
             frase = in.nextLine();
         } while (frase.length() == 0);
-        
+        cont++;
+
         frase = frase.toLowerCase(); // converte todos os caracteres pra minúsculo
-        for (int i = 0; i < frase.length(); i++) {
+        for (int i = 0; i < frase.length(); i++) { 
             if (frase.charAt(i) == ' ')
-            cont++;
+                cont++;
         }
         System.out.println("A quantidade de palavras na frase '" + frase + "' é: " + cont);
     }
