@@ -1,0 +1,27 @@
+/* SEMANA 09: 29/09
+ * 
+ * Lê uma string e conta quantas vogais aparecem;
+ */
+
+import java.util.Scanner;
+
+public class Ex1
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner (System.in);
+        String palavra;
+        int cont = 0;
+        
+        do {
+            System.out.println("Digite uma palavra: ");
+            palavra = in.nextLine();
+        } while (palavra.length() == 0);
+        
+        palavra = palavra.toLowerCase(); // converte todos os caracteres pra minúsculo
+        for (int i = 0; i < palavra.length(); i++) {
+            if (palavra.charAt(i) == 'a' || palavra.charAt(i) == 'e' || palavra.charAt(i) == 'i' || palavra.charAt(i) == 'o' || palavra.charAt(i) == 'u')
+            cont++;
+        }
+        System.out.println("A quantidade de vogais é: " + cont);
+    }
+}
