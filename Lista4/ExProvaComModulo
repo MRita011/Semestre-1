@@ -1,0 +1,67 @@
+/* SEMANA 10: 06/10
+
+ * Faça um programa que lê uma quantidade de turmas. Para cada turma deve ler uma quantidade de estudantes.
+ * Para cada estudante, ler a P1, P2, T, ME e calcular o G1.
+ */
+
+import java.util.Scanner;
+
+public class ExProvaComModulo
+{
+    public static void main (String args[]) {
+        double p1, p2, me, tf, g1;
+        int turmas = lerTurmas();
+
+        for(int x = 0; x < turmas; x++) {
+            System.out.println("\nAlunos da turma " + x + 1);
+            int alunos = lerAlunos();
+            
+            for (int y = 0; y < alunos; y++) {
+                p1 = lerNotas();
+                p2 = lerNotas();
+                me = lerNotas();
+                tf = lerNotas();
+                g1 = calcularG1(p1, p2, me, tf);
+                
+                System.out.println(mostrarResultado(g1));
+            }
+        }
+    }
+
+    public static int lerTurmas() {
+        Scanner in = new Scanner (System.in);
+        System.out.println("\fDigite a quantidade de turmas: ");
+        int turmas = in.nextInt();
+        return turmas;
+    }
+
+    public static int lerAlunos() {
+        Scanner in = new Scanner (System.in);
+        System.out.println("Digite a quantidade de alunos da turma: ");
+        int alunos = in.nextInt();
+        return alunos;
+    }
+
+    public static double lerNotas() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Digite a nota do aluno: ");
+        double notas = in.nextDouble();
+        return notas;
+    }
+
+    public static double calcularG1(double p1, double p2, double me, double tf) {
+        double g1 = (p1 + 2 * p2 + me + 2 * tf)/6;
+        return g1;
+    }
+
+    public static String mostrarResultado(double g1) {
+        if (g1 >= 7) 
+            return "Aprovado";
+
+        else if (g1 >= 4)
+            return "Em g2";
+
+        else
+            return "Reprovado.";
+    }
+}
