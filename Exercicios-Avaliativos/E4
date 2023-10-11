@@ -1,0 +1,68 @@
+/* Faça um programa em java que leia um número indeterminado de Strings, uma de cada vez, e informe:
+
+ * - quantas palavras contém esta String;
+
+ * - quantas vezes aparece uma determinada vogal, a partir de uma vogal informada pelo usuário;
+
+ * - se a palavra é um palíndrome;
+
+ * - a palavra escrita de trás pra frente;
+
+ * Cada um dos itens acima deverão ser implementados na forma de métodos, individualmente.
+
+ * Estes métodos deverão ser chamados no método main de maneira que sejam mostrados os seus resultados em uma saída de dados.
+
+ * A condição de parada deste programa (main) é quando for digitada pelo usuário um String com conteúdo "SAIR"
+ */
+
+import java.util.Scanner;
+
+public class E4 
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner (System.in);
+        String frase = "";
+
+        System.out.println("\fDigite uma frase (digite 'SAIR' para encerrar o programa): ");
+        frase = in.nextLine();
+        frase = frase.toLowerCase(); // converte todos os caracteres pra minúsculo
+
+        System.out.println("\nA quantidade de palavras na frase '" + frase + "' é: " + QuantidadePalavras(frase));
+        System.out.println("\nA vogal escolhida aparece: " + Vogal(frase) + " vez(es)");
+
+    }
+
+    public static int QuantidadePalavras(String frase) {
+        int quantidade = 1;
+
+        for (int i = 0; i < frase.length(); i++) { 
+            if (frase.charAt(i) == ' ')
+                quantidade++;
+        }
+        return quantidade;
+    }
+
+    public static int Vogal(String frase) {
+        Scanner in = new Scanner(System.in);
+        char vogal;
+        int vogais = 0;
+
+        System.out.println("Digite a vogal que deseja pesquisar: ");
+        vogal = in.next().charAt(0);
+
+        for (int i = 0; i < frase.length(); i++) {
+            if (frase.charAt(i) == vogal)
+                vogais++;
+        }
+
+        return vogais;
+    }
+
+    /*public static String Inverter (String frase) {
+        Scanner in = new Scanner (System.in);
+        StringBuilder inverter = new StringBuilder(frase);
+        inverter.reverse();
+        
+        return inverter;
+    }*/
+}
