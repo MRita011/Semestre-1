@@ -5,7 +5,7 @@ public class Quadrado
     private String cor;
 
     // 2. criar o método constructor (pra criar as instâncias do quadrado)
-    public Quadrado() {
+    public Quadrado() { // O constructor só é acessado ao criar novas instâncias
         lado = 0;
         cor = "";
     }
