@@ -37,4 +37,9 @@ public class Quadrado
     public double calcularPerimetro() {
         return lado * 4;
     }
+    
+    // imprimir o conteúdo do objeto
+    public String toString() { // o "toString" vai pegar o conteúdo do método e converter para uma string
+        return "Lado: " + getLado() + "\nCor: " + getCor() + "\nÁrea: " + calcularArea() + "\nPerímetro: " + calcularPerimetro();
+    }
 }
