@@ -13,18 +13,49 @@ public class AppQuadrado
         Quadrado quad1 = new Quadrado();
 
         // para descobrir o lado do objeto, chamamos o método
-        System.out.println("O lado do quadrado é: " + quad1.getLado());
+        System.out.print("\fO lado do quadrado é: " + quad1.getLado());
 
-        System.out.println("Digite um novo lado: ");
+        System.out.print("\nDigite um novo lado: ");
         lado = in.nextDouble();
         // manda o lado DA MAIN para o lado da classe chamando o método set
         quad1.setLado(lado);
-        System.out.println("O lado do quadrado é: " + quad1.getLado());
+        /*System.out.print("\nO novo lado do quadrado é: " + quad1.getLado());
 
-        System.out.println("Digite uma nova cor: ");
+        System.out.print("\nDigite uma nova cor: ");
         cor = in.nextLine();
         cor = in.nextLine(); // bug do java
         quad1.setCor(cor);
-        System.out.println("A cor do quadrado é: " + quad1.getCor());
+        System.out.print("\nA cor do quadrado é: " + quad1.getCor());
+
+        System.out.print("\nA área do quadrado é: " + quad1.calcularArea());
+        System.out.print("\nO perímetro do quadrado é: " + quad1.calcularPerimetro() + "\n");*/
+        System.out.println(quad1.toString());
+
+        // ---------- SEGUNDO OBJETO ---------- //
+        System.out.println("\nSEGUNDO OBJETO");
+
+        Quadrado quad2 = new Quadrado();
+        double lado2;
+        String cor2;
+
+        System.out.print("\nO lado do quadrado é: " + quad2.getLado());
+        System.out.print("\nDigite um novo lado: ");
+        lado2 = in.nextDouble();
+        quad2.setLado(lado2);
+
+        /*System.out.print("\nO novo lado do quadrado é: " + quad2.getLado());
+
+        System.out.print("\nDigite uma nova cor: ");
+        cor2 = in.nextLine();
+        cor2 = in.nextLine(); // bug do java
+        quad2.setCor(cor2);
+        System.out.print("\n cor do quadrado é: " + quad2.getCor());
+
+        System.out.print("\nA área do quadrado é: " + quad2.calcularArea());
+        System.out.print("\nO perímetro do quadrado é: " + quad2.calcularPerimetro());*/
+
+        // método toString
+        System.out.println(quad2.toString());
+
     }
 }
