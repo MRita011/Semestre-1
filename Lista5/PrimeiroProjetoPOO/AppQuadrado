@@ -1,0 +1,12 @@
+// SEMANA 12: 18/10
+
+public class AppQuadrado
+{
+    public static void main (String args[]) {
+        // criando um objeto do tipo quadrado
+        Quadrado quad1 = new Quadrado();
+        
+        // para descobrir o lado do objeto, chamamos o método
+        System.out.println(quad1.getLado());
+    }
+}
