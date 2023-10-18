@@ -27,4 +27,14 @@ public class Quadrado
     public void setCor(String novaCor) {
         cor = novaCor;
     }
+    
+    // ---------- MÉTODOS ESPECÍFICOS ---------- //
+    
+    public double calcularArea() { // não precisa de parâmetros, pois a variável lado já foi declarada no escopo da classe
+        return lado * lado;
+    }
+    
+    public double calcularPerimetro() {
+        return lado * 4;
+    }
 }
