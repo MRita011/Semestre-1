@@ -1,12 +1,30 @@
 // SEMANA 12: 18/10
 
+import java.util.Scanner;
+
 public class AppQuadrado
 {
     public static void main (String args[]) {
+        Scanner in = new Scanner(System.in);
+        double lado; // variável da main, não do objeto
+        String cor;
+
         // criando um objeto do tipo quadrado
         Quadrado quad1 = new Quadrado();
-        
+
         // para descobrir o lado do objeto, chamamos o método
-        System.out.println(quad1.getLado());
+        System.out.println("O lado do quadrado é: " + quad1.getLado());
+
+        System.out.println("Digite um novo lado: ");
+        lado = in.nextDouble();
+        // manda o lado DA MAIN para o lado da classe chamando o método set
+        quad1.setLado(lado);
+        System.out.println("O lado do quadrado é: " + quad1.getLado());
+
+        System.out.println("Digite uma nova cor: ");
+        cor = in.nextLine();
+        cor = in.nextLine(); // bug do java
+        quad1.setCor(cor);
+        System.out.println("A cor do quadrado é: " + quad1.getCor());
     }
 }
