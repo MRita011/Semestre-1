@@ -1,0 +1,30 @@
+public class Quadrado 
+{
+    // 1. definir os atributos da classe
+    private double lado;
+    private String cor;
+
+    // 2. criar o método constructor (pra criar as instâncias do quadrado)
+    public Quadrado() { // O constructor só é acessado ao criar novas instâncias
+        lado = 0;
+        cor = "";
+    }
+
+    // 3. criar o método get para RETORNAR os conteúdos das variáveis (para que o usuário não possa alterá-las diretamente)
+    public double getLado() { // não tem parâmetros, pois só serve para retornar o conteúdo da classe
+        return lado;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    // 4. criar o método set para "atualizar" a variável da classe (com o conteúdo da variável do parâmetro)
+    public void setLado(double novoLado) { // é void, pois não retorna nada
+        lado = novoLado;
+    }
+    
+    public void setCor(String novaCor) {
+        cor = novaCor;
+    }
+}
