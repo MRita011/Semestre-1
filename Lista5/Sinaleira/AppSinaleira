@@ -26,7 +26,7 @@ public class AppSinaleira {
 
             if (resposta.equals("SIM")) {
                 sinaleira1.proximoEstado();
-            } else if (resposta.equals("NÃO") || resposta.equals("NAO")) {
+            } else if (resposta.equals("NÃO")) {
                 break; // Sai do loop se a resposta for "NÃO"
             } else {
                 System.out.println("Resposta inválida. Por favor, digite SIM ou NÃO.");
