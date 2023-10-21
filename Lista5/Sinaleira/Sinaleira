@@ -1,0 +1,15 @@
+/* SEMANA 13: 21/10
+ 
+ * 3. Implemente a classe Sinaleira, identificando os atributos (variáveis de instância) 
+ * e métodos (de instância) necessários. Um objeto Sinaleira pode
+ * estar em um dos três estados: vermelho, amarelo ou verde. 
+ 
+ * Quando se solicita, ele passa para o próximo estado obedecendo a ordem: 
+ * verde → amarelo → vermelho → verde e assim por diante. 
+ * O objeto, ainda, exibe o seu estado atual sempre que solicitado. 
+ */
+
+public Sinaleira 
+{
+    
+}
