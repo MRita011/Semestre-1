@@ -1,0 +1,47 @@
+/* SEMANA 13: 21/10
+
+ * 3. Implemente a classe Sinaleira, identificando os atributos (variáveis de instância) 
+ * e métodos (de instância) necessários. Um objeto Sinaleira pode
+ * estar em um dos três estados: vermelho, amarelo ou verde. 
+
+ * Quando se solicita, ele passa para o próximo estado obedecendo a ordem: 
+ * verde → amarelo → vermelho → verde e assim por diante. 
+ * O objeto, ainda, exibe o seu estado atual sempre que solicitado. 
+ */
+
+import java.util.Scanner;
+
+public class AppSinaleira {
+    public static void main(String[] args) {
+        Sinaleira sinaleira1 = new Sinaleira();
+        Scanner in = new Scanner(System.in);
+        
+        System.out.println(sinaleira1);
+
+        while (true) {
+            System.out.println(sinaleira1);
+
+            System.out.print("Deseja avançar para o próximo estado? (SIM/NÃO): ");
+            String resposta = in.nextLine().toUpperCase();
+
+            if (resposta.equals("SIM")) {
+                sinaleira1.proximoEstado();
+            } else if (resposta.equals("NÃO")) {
+                break; // Sai do loop se a resposta for "NÃO"
+            } else {
+                System.out.println("Resposta inválida. Por favor, digite SIM ou NÃO.");
+            }
+        }
+    }
+}
+
+/* A classe AppSinaleira:
+     * Contém o método main, que é o ponto de entrada do programa.
+     * Cria uma instância da classe Sinaleira chamada sinaleira1, que representa o estado de uma sinaleira.
+     * Utiliza um loop while para permitir que o programa continue a funcionar até que o usuário decida encerrá-lo.
+     * Dentro do loop, exibe o estado atual da sinaleira e solicita ao usuário se deseja avançar para o próximo estado.
+     * O programa lê a resposta do usuário e converte-a em letras maiúsculas para garantir que seja independente de caixa.
+     * Se o usuário digitar "SIM", a sinaleira avançará para o próximo estado.
+     * Se o usuário digitar "NÃO", o loop será encerrado, e o programa sairá.
+     * Se o usuário inserir qualquer resposta diferente de "SIM" ou "NÃO", o programa exibirá uma mensagem de resposta inválida e continuará no loop, aguardando uma resposta válida.
+ */
