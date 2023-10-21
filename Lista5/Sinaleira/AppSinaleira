@@ -21,12 +21,12 @@ public class AppSinaleira {
         while (true) {
             System.out.println(sinaleira1);
 
-            System.out.print("Deseja avançar para o próximo estado? (SIM/NÃO): ");
+            System.out.print("\fDeseja avançar para o próximo estado? (SIM/NÃO): ");
             String resposta = in.nextLine().toUpperCase();
 
             if (resposta.equals("SIM")) {
                 sinaleira1.proximoEstado();
-            } else if (resposta.equals("NÃO")) {
+            } else if (resposta.equals("NÃO") || resposta.equals("NAO")) {
                 break; // Sai do loop se a resposta for "NÃO"
             } else {
                 System.out.println("Resposta inválida. Por favor, digite SIM ou NÃO.");
