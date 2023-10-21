@@ -16,7 +16,7 @@ public class AppSinaleira {
         Sinaleira sinaleira1 = new Sinaleira();
         Scanner in = new Scanner(System.in);
         
-        System.out.println(sinaleira1);
+        sinaleira1.toString();
 
         while (true) {
             System.out.println(sinaleira1);
@@ -26,6 +26,7 @@ public class AppSinaleira {
 
             if (resposta.equals("SIM")) {
                 sinaleira1.proximoEstado();
+                sinaleira1.toString();
             } else if (resposta.equals("NÃO")) {
                 break; // Sai do loop se a resposta for "NÃO"
             } else {
