@@ -1,0 +1,29 @@
+/*  Faça um programa que leia as medidas das arestas a, b e c de um paralelepípedo, 
+ * calcule e escreva a sua diagonal. A diagonal deve ser calculada por um método.
+ */
+
+import java.util.Scanner;
+
+public class Ex7
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        //      arestas
+        double a, b, c, diagonal;
+        
+        System.out.println("\fInsira a medida da aresta a: ");
+        a = in.nextDouble();
+        
+        System.out.println("\nInsira a medida da aresta b: ");
+        b = in.nextDouble();
+        
+        System.out.println("\nInsira a medida da aresta c: ");
+        c = in.nextDouble();
+        
+        System.out.println("\nDiagonal: " + calcularDiagonal(a, b, c));
+    }
+    
+    public static double calcularDiagonal(double a, double b, double c) {
+        return Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2) + Math.pow(c, 2));
+    }
+}
