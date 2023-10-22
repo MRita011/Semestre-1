@@ -1,0 +1,70 @@
+/* Faça um programa que leia a altura e o sexo de uma pessoa (1 para masculino e 2 para feminino), 
+ * calcule e escreva o seu peso ideal, utilizando as fórmulas abaixo. Implemente um método para calcular o peso ideal.
+ * • para homens: (72.7 × altura) − 58
+ * • para mulheres: (62.1 × altura) − 44.7
+ */
+
+import java.util.Scanner;
+
+public class Ex10 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        double altura;
+        int opcao = 0;
+
+        System.out.println("Digite a sua altura: ");
+        altura = in.nextDouble();
+
+        menu();
+        opcao = in.nextInt();
+
+        switch (opcao) {
+            case 1:
+                if (opcaoValida(opcao)) {
+                    System.out.println("Peso ideal para homens: " + pesoIdealHomens(altura));
+                }
+                break;
+
+            case 2:
+                if (opcaoValida(opcao)) {
+                    System.out.println("Peso ideal para mulheres: " + pesoIdealMulheres(altura));
+                }
+                break;
+
+            case 3:
+                System.out.println("\nSair.");
+                break;
+
+            default:
+                System.out.println("\nOpção inválida.");
+                break;
+        }
+    }
+
+    public static void menu() {
+        System.out.println(
+            "Escolha o sexo: " +
+            "\n1. Masculino" +
+            "\n2. Feminino" +
+            "\n3. Sair");
+    }
+
+    public static boolean opcaoValida(int opcao) {
+        if (opcao == 1 || opcao == 2) {
+            return true;
+        } else {
+            System.out.println("Opção inválida. Tente novamente.");
+            return false;
+        }
+    }
+
+    public static double pesoIdealHomens(double altura) {
+        // para homens: (72.7 × altura) - 58
+        return (72.7 * altura) - 58;
+    }
+
+    public static double pesoIdealMulheres(double altura) {
+        // para mulheres: (62.1 × altura) - 44.7
+        return (62.1 * altura) - 44.7;
+    }
+}
