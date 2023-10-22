@@ -1,0 +1,42 @@
+/* Faça um programa que leia as dimensões de uma casa (largura e comprimento) 
+ * e as dimensões de um terreno (largura e comprimento). A seguir,
+ * o programa deve calcular e escrever a área da casa, a área do terreno e a
+ * área livre. O cálculo de cada área deve ser realizado por um método.
+ */
+
+import java.util.Scanner;
+
+public class Ex3 
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        double casaLar = 0, casaCom = 0, terrenoLar = 0, terrenoCom = 0;
+
+        System.out.println("\fInsira a largura da casa: ");
+        casaLar = in.nextDouble();
+
+        System.out.println("\nInsira o comprimento da casa: ");
+        casaCom = in.nextDouble();
+
+        System.out.println("\nInsira a largura do terreno: ");
+        terrenoLar = in.nextDouble();
+
+        System.out.println("\nInsira o comprimento do terreno: ");
+        terrenoCom = in.nextDouble();
+
+        System.out.println("\nÁrea da casa: " + areaCasa(casaLar, casaCom) + "\nÁrea do terreno: " + areaTerreno(terrenoLar, terrenoCom) 
+            + "\nÁrea livre: " + areaLivre(casaLar, casaCom, terrenoLar, terrenoCom));
+    }
+
+    public static double areaCasa(double casaLar, double casaCom) {
+        return casaLar * casaCom;
+    }
+
+    public static double areaTerreno(double terrenoLar, double terrenoCom) {
+        return terrenoLar * terrenoCom;
+    }
+
+    public static double areaLivre(double casaLar, double casaCom, double terrenoLar, double terrenoCom) {
+        return (terrenoLar * terrenoCom) - (casaLar * casaCom);
+    }
+}
