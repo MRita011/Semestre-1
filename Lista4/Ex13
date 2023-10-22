@@ -1,0 +1,65 @@
+/* Uma empresa concederá um aumento de salário aos seus funcionários, variável de acordo com o cargo, conforme a tabela. 
+ * Faça um programa que leia o salário
+ * o cargo de um funcionário e 
+ * calcule o novo salário. 
+
+ * Se o cargo do funcionário não estiver na tabela, ele deverá, então, receber 5% de aumento. 
+ * Mostre o salário antigo, o novo salário e a diferença. 
+ * O valor do novo salário deve ser denido por um método. Crie também método para calcular a diferença.
+
+ * CODIGO DO CARGO | PERCENTUAL DE AUMENTO
+ *      101        |          6%
+ *      102        |          7%
+ *      103        |          8%
+ *      104        |          9.5%
+ */
+
+import java.util.Scanner;
+
+public class Ex13 
+{
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        double salario;
+        int cargo;
+
+        System.out.print("\fDigite o seu salário: ");
+        salario = in.nextDouble();
+
+        System.out.print("\nDigite o código do seu cargo: ");
+        cargo = in.nextInt();
+
+        double novoSalario = calcularNovoSalario(salario, cargo);
+
+        System.out.println(
+            "\nCargo: " + cargo + 
+            "\nSalário antigo: " + salario +  
+            "\nNovo salário: " + novoSalario + 
+            "\nDiferença: " + diferenca(salario, novoSalario));
+    }
+
+    public static double calcularNovoSalario(double salario, int cargo) {
+        double percentualAumento = 0;
+
+        if (cargo == 101) 
+            percentualAumento = 6.0;
+            
+        else if (cargo == 102) 
+            percentualAumento = 7.0;
+            
+        else if (cargo == 103) 
+            percentualAumento = 8.0;
+            
+        else if (cargo == 104) 
+            percentualAumento = 9.5;
+            
+        else 
+            percentualAumento = 5.0;
+
+        return salario + (percentualAumento / 100) * salario;
+    }
+
+    public static double diferenca(double salarioAntigo, double novoSalario) {
+        return novoSalario - salarioAntigo;
+    }
+}
