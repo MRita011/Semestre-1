@@ -1,0 +1,71 @@
+/*  Faça um programa que simule uma conta bancária. A conta inicia com
+ * o saldo zerado. Inicialmente, o programa mostra ao usuário o seguinte menu de opções:
+ * 1 - Ver saldo Atual
+ * 2 - Depositar
+ * 3 - Sacar.
+
+ * O programa deve pedir ao usuário a opção a ser executada e realizá-la,
+ * exibindo o saldo atual na tela. Tanto a operação de depósito quanto a
+ * de saque devem solicitar ao usuário o valor que o usuário deseja depositar/sacar. As operações correspondentes a essas duas operações (depositar
+ * e sacar) devem ser feitas por métodos (uma para cada operações). Use switch quando possível. 
+ */
+
+import java.util.Scanner;
+
+public class Ex19
+{
+    public static void main (String agrs[]) {
+        Scanner in = new Scanner(System.in);
+        double saldo = 0, valor = 0;
+        int opcao = 0;
+
+        do {
+            menu();
+            opcao = in.nextInt();
+
+            switch(opcao) {
+                case 1:
+                    System.out.println("\nSaldo: " + saldo);
+                    break;
+
+                case 2:
+                    System.out.println("\nDigite o valor a ser depositado: ");
+                    valor = in.nextDouble();
+                    saldo = depositar(saldo, valor);
+                    break;
+
+                case 3:
+                    System.out.println("\nDigite o valor a ser sacado: ");
+                    valor = in.nextDouble();
+                    saldo = sacar(saldo, valor);
+                    break;
+
+                case 4:
+                    System.out.println("\nSair.");
+                    break;
+
+                default:
+                    System.out.println("\nOpção inválida.");
+                    break;
+            }
+        } while (opcao != 4);
+    }
+
+    public static void menu() {
+        System.out.println
+        (
+            "\fDigite 1 para ver o saldo: " +
+            "\nDigite 2 para depositar: " +
+            "\nDigite 3 para sacar: " +
+            "\nDigite 4 para sair: "
+        );
+    }
+
+    public static double sacar(double saldo, double valor) {
+        return saldo - valor;
+    }
+
+    public static double depositar(double saldo, double valor) {
+        return saldo + valor;
+    }
+}
