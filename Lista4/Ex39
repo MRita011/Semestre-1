@@ -1,0 +1,35 @@
+/* Faça um programa que leia uma palavra e a quantidade de vezes que
+ * ela deve ser repetida. Construa um método que receba esses dados como
+ * parâmetros e devolva uma string que corresponde à palavra repetida tantas
+ * vezes quanto for a quantidade informada. Por exemplo, se a palavra for
+ * "ho" e a quantidade for 3, o método deve devolver "hohoho".
+ */
+
+import java.util.Scanner;
+
+public class Ex39
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        String palavra = "";
+        int quantidade = 0;
+
+        System.out.println("\fDigite uma palavra: ");
+        palavra = in.nextLine();
+
+        System.out.println("\nDigite uma quantidade (de palavras): ");
+        quantidade = in.nextInt();
+
+        System.out.println(repetirPalavra(palavra, quantidade));
+    }
+
+    public static String repetirPalavra(String palavra, int quantidade) {
+        String palavraCompleta = "";
+
+        if (quantidade > 0)
+            for (int i = 0; i < quantidade; i++) {
+                palavraCompleta = palavraCompleta.concat(palavra);
+            }
+        return palavraCompleta;
+    }
+}
