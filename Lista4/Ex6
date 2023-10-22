@@ -1,0 +1,33 @@
+/* Elabore um programa que leia 30 valores em Fahrenheit, calcula a conversão de cada 
+ * temperatura de Fahrenheit (F) para Celsius (C) e escreve o valor resultante na tela. 
+ * Para calcular a conversão defina um método e use a fórmula C = 5/9 × (F − 32).
+ */
+
+import java.util.Scanner;
+
+public class Ex6 
+{
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        double fahrenheit, celsius;
+        int cont = 0;
+
+        System.out.print("\f");
+
+        while (cont < 3) {
+            System.out.print("\nDigite a temperatura em Fahrenheit: ");
+            fahrenheit = in.nextDouble();
+
+            celsius = conversao(fahrenheit); // Realiza a conversão
+
+            System.out.print("Fahrenheit: " + fahrenheit + "°F \nCelsius: " + celsius + "°C\n");
+            cont++;
+        }
+    }
+
+    public static double conversao(double fahrenheit) {
+        double celsius = 5.0 / 9.0 * (fahrenheit - 32);
+        return celsius;
+    }
+}
+
