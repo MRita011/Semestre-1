@@ -1,0 +1,74 @@
+/* Um usuário deseja um programa onde possa informar 3 notas e ainda escolher 
+ * o tipo de média que deve aplicada aos valores lidos.Implemente esse programa 
+ * considerando o menu de opções abaixo. O cálculo de cada média deve ser feito por um método.
+ * 1 - Aritmética
+ * 2 - Ponderada ( Pesos: 3,3,4)
+ * 3 - Harmônica
+ */
+
+import java.util.Scanner;
+
+
+public class Ex12 
+{
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        double n1, n2, n3, p1, p2, p3;
+        int opcao = 0;
+
+        System.out.print("\fDigite a 1ª nota: ");
+        n1 = in.nextDouble();
+
+        System.out.print("Digite a 2ª nota: ");
+        n2 = in.nextDouble();
+
+        System.out.print("Digite a 3ª nota: ");
+        n3 = in.nextDouble();
+
+        menu();
+        opcao = in.nextInt();
+        
+        switch (opcao) {
+            case 1:
+                System.out.println("\nMédia aritmética: " + mediaAritmetica(n1, n2, n3));
+                break;
+
+            case 2:
+                System.out.print("Digite o peso da 1ª nota: ");
+                p1 = in.nextDouble();
+
+                System.out.print("Digite o peso da 2ª nota: ");
+                p2 = in.nextDouble();
+
+                System.out.print("Digite o peso da 3ª nota: ");
+                p3 = in.nextDouble();
+
+                System.out.println("\nMédia Ponderada: " + mediaPonderada(n1, n2, n3, p1, p2, p3));
+                break;
+
+            case 3:
+                System.out.println("\nMédia Harmônica: " + mediaHarmonica(n1, n2, n3));
+                break;
+
+            default:
+                System.out.println("Opção inválida.");
+                break;
+        }
+    }
+
+    public static void menu() {
+        System.out.println("\n[ESCOLHA O TIPO DE MÉDIA]\n \n1. Aritmética: \n2. Ponderada (Pesos: 3, 3, 4): \n3. Harmônica.");
+    }
+
+    public static double mediaAritmetica(double n1, double n2, double n3) {
+        return (n1 + n2 + n3) / 3;
+    }
+
+    public static double mediaPonderada(double n1, double n2, double n3, double p1, double p2, double p3) {
+        return (n1 * p1 + n2 * p2 + n3 * p3) / (p1 + p2 + p3);
+    }
+
+    public static double mediaHarmonica(double n1, double n2, double n3) {
+        return 3.0 / ((1.0 / n1) + (1.0 / n2) + (1.0 / n3));
+    }
+}
