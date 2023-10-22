@@ -1,0 +1,30 @@
+/* Faça um programa que leia uma string e verifique se ela é palíndrome.
+ * Palíndromes são aquelas palavras que podem ser lidas tanto da esquerda para
+ * a direita ou da direita para a esquerda. Exemplo: "arara". Crie um método
+ * para verificar se a string é um palíndromo.
+ */
+
+import java.util.Scanner;
+
+public class Ex36
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        String palavra = "";
+
+        System.out.println("\fInsira uma palavra: "); 
+        palavra = in.nextLine().toLowerCase(); // Converte para minúsculas
+        verificar(palavra); // Chama a função 'verificar' com a string lida como argumento
+    }
+
+    public static void verificar(String text) {
+        StringBuilder sb = new StringBuilder(text); // Cria um objeto StringBuilder com a string
+        sb.reverse(); // Inverte a string usando o método 'reverse' do StringBuilder
+
+        if (text.equalsIgnoreCase(sb.toString())) { // Compara a string original com a versão invertida, ignorando maiúsculas/minúsculas
+            System.out.println("\nPalíndromo."); // Se forem iguais, imprime que é um palíndromo
+        }
+        else
+            System.out.println("\nNão-palíndromo."); // Se não forem iguais, imprime que não é um palíndromo
+    }
+}
