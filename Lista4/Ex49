@@ -1,0 +1,35 @@
+/* Construa um programa que gere a gura a seguir. O programa solicita
+ * ao usuário a altura do triângulo (em linhas) e o programa constrói, por
+ * meio de um método, a gura apresentada. No exemplo, o triângulo tem 5 linhas.
+     * 
+     **
+     ***
+     ****
+     *****
+ */
+
+import java.util.Scanner;
+
+public class Ex49 {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int linhas = 0;
+        
+        System.out.print("\fDigite a quantidade de linhas: "); // Solicita ao usuário o número de linhas para o triângulo.
+        linhas = in.nextInt(); 
+        
+        System.out.println("\n");
+        triangulos(linhas); // Chama o método triangulos, passando o número de linhas fornecido.
+    }
+
+    // Método que gera e imprime o triângulo com base no número de linhas.
+    public static void triangulos(int linhas) {
+        String c = "*"; // Inicializa uma string com um asterisco para construir o triângulo.
+
+        // Loop que gera cada linha do triângulo.
+        for (int i = 0; i <= linhas; i++) {
+            System.out.println(c); // Imprime a linha atual do triângulo.
+            c = c + "*"; // Adiciona um asterisco à linha para a próxima iteração, construindo o triângulo.
+        }
+    }
+}
