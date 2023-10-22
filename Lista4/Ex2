@@ -1,0 +1,35 @@
+/* Faça um programa que leia 3 valores e determine o maior deles. Use um
+ * método para encontrar o maior valor.
+ */
+
+import java.util.Scanner;
+
+public class Ex2
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int v1, v2, v3;
+        
+        System.out.print("\fDigite um o 1° valor: ");
+        v1 = in.nextInt();
+        
+        System.out.print("\nDigite um o 2° valor: ");
+        v2 = in.nextInt();
+        
+        System.out.print("\nDigite um o 3° valor: ");
+        v3 = in.nextInt();
+        
+        System.out.println("\nMaior valor: " + maiorValor(v1, v2, v3));
+    }
+    
+    public static int maiorValor(int v1, int v2, int v3) {
+        if (v1 > v2 && v1 > v3)
+            return v1; // maior = v1;
+            
+        else if (v2 > v1 && v2 > v3)
+            return v2; // maior = v2;
+            
+        else 
+            return v3; // maior = v3
+    }
+}
