@@ -1,0 +1,47 @@
+/* Faça um programa que leia as coordenadas de 2 pontos no plano (x1, y1) e (x2, y2). 
+ * A seguir, o programa deve calcular e escrever a distância euclidiana e também a distância de Manhattan entre esses pontos. 
+ * Para isso,dena um método que calcula a distância euclidiana usando a fórmula:
+ * distanciaE = √(x1 − x2)² + (y1 − y2)²
+
+ * Defina também um método que calcula a distância de Manhattan pela fórmula: 
+ * distanciaM = |x1 − x2| + |y1 − y2|.
+ */
+
+import java.util.Scanner;
+
+public class Ex5 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        double x1, x2, y1, y2;
+
+        System.out.print("Insira a coordenada x1: ");
+        x1 = in.nextDouble();
+
+        System.out.print("Insira a coordenada y1: ");
+        y1 = in.nextDouble();
+
+        System.out.print("Insira a coordenada x2: ");
+        x2 = in.nextDouble();
+
+        System.out.print("Insira a coordenada y2: ");
+        y2 = in.nextDouble();
+
+        double distanciaEuclidiana = distanciaEuclidiana(x1, x2, y1, y2);
+        double distanciaManhattan = distanciaManhattan(x1, x2, y1, y2);
+
+        System.out.println("\nDistância Euclidiana: " + distanciaEuclidiana);
+        System.out.println("Distância de Manhattan: " + distanciaManhattan);
+    }
+
+    public static double distanciaEuclidiana(double x1, double x2, double y1, double y2) {
+        // Distância Euclidiana: √(x1 − x2)² + (y1 − y2)²
+        double euclidiana = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+        return euclidiana;
+    }
+
+    public static double distanciaManhattan(double x1, double x2, double y1, double y2) {
+        // Distância de Manhattan: |x1 − x2| + |y1 − y2|
+        double manhattan = Math.abs(x1 - x2) + Math.abs(y1 - y2);
+        return manhattan;
+    }
+}
