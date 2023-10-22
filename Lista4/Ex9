@@ -1,0 +1,62 @@
+/* Faça um programa que leia 3 notas, calcule e escreva a média ponderada
+ * dessas notas. Para calcular a média, considere que a maior nota tem peso
+ * 5 e as demais, peso 2,5. Implemente, para resolver esse problema, dois
+ * métodos. Um para encontrar a maior nota e outro para calcular a média.
+ */
+
+import java.util.Scanner;
+
+public class Ex9
+{
+    public static void main(String agrs[]) {
+        Scanner in = new Scanner(System.in);
+        double n1, n2, n3, peso1, peso2, peso3, maior;
+
+        System.out.println("\fDigite a nota 1: ");
+        n1 = in.nextDouble();
+
+        System.out.println("\nDigite a nota 2: ");
+        n2 = in.nextDouble();
+
+        System.out.println("\nDigite a nota 3: ");
+        n3 = in.nextDouble();
+
+        maior = encontrarMaiorNota(n1, n2, n3);
+
+        if (maior == 3) {
+            peso3 = 5;
+            peso2 = 2.5;
+            peso1 = 2.5;
+        }
+
+        else if (maior == n2) {
+            peso3 = 2.5;
+            peso2 = 5;
+            peso1 = 2.5;
+        }
+
+        else {
+            peso1 = 5;
+            peso2 = 2.5;
+            peso3 = 2.5;
+        }
+
+        System.out.println("\nMédia ponderada: " + calcularMedia(n1, n2, n3, peso1, peso2, peso3));
+    }
+
+    public static double encontrarMaiorNota(double n1, double n2, double n3) {
+        // double maior
+        if (n1 > n2 && n1 > n3)
+            return n1; // maior = n1;
+
+        else if (n2 > n1 && n2 > n3)
+            return n2; // maior = n2;
+
+        else
+            return n3; // maior = n3;
+    }
+
+    public static double calcularMedia(double n1, double n2, double n3, double peso1, double peso2, double peso3) {
+        return (n1 * peso1 + n2 * peso2 + n3 * peso3)/10;
+    }
+}
