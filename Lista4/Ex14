@@ -1,0 +1,46 @@
+/* Escrever um programa que lê a hora de início e hora de término de um jogo, 
+ * ambas subdivididas em dois valores distintos: horas e minutos. 
+ * Calcular e escrever a duração do jogo, também em horas e minutos, considerando:
+ * que o tempo máximo de duração de um jogo é de 24 horas
+ * que o jogo pode iniciar em um dia e terminar no dia seguinte. 
+ * A duração deve ser calculada por um método.
+ */
+
+import java.util.Scanner;
+
+public class Ex14 
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("\fDigite que horas o jogo começou: ");
+        int horaI = in.nextInt();
+        
+        System.out.print("\nAgora os minutos: ");
+        int minutoI = in.nextInt();
+
+        System.out.print("\nDigite que horas o jogo terminou:");
+        int horaT = in.nextInt();
+        
+        System.out.print("\nAgora os minutos: ");
+        int minutoT = in.nextInt();
+
+        int duracao = duracaoJogo(horaI, minutoI, horaT, minutoT);
+
+        int horas = duracao / 60;
+        int minutos = duracao % 60;
+
+        System.out.println("\nDuração do jogo: " + horas + " horas e " + minutos + " minutos.");
+    }
+
+    public static int duracaoJogo(int horaI, int minutoI, int horaT, int minutoT) {
+        int minutosInicio = horaI * 60 + minutoI;
+        int minutosTermino = horaT * 60 + minutoT;
+
+        if (minutosTermino < minutosInicio) {
+            minutosTermino += 24 * 60; // Adicionar 24 horas se o jogo terminar no dia seguinte
+        }
+
+        return minutosTermino - minutosInicio;
+    }
+}
