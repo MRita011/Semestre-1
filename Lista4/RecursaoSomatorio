@@ -1,0 +1,28 @@
+/* SEMANA 11: 09/10
+ * Recursão - somatórios
+ */
+
+import java.util.Scanner;
+
+public class Recursao {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int num = 0;
+
+        System.out.print("\f"); // Limpa a tela do console
+
+        do {
+            System.out.print("Digite um número inteiro: ");
+            num = in.nextInt();
+        } while (num <= 0); // Garante que o número seja positivo
+
+        System.out.println("\nSomatório: " + recursao(num)); // Chama a função recursao e imprime o resultado
+    }
+
+    public static int recursao(int num) {
+        if (num <= 1) {
+            return 1; // Caso base: retorna 1 quando num é menor ou igual a 1
+        }
+        return num + recursao(num - 1); // Chamada recursiva: soma num com o resultado da função chamada com num - 1
+    }
+}
