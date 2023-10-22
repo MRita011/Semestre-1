@@ -1,0 +1,39 @@
+/* Um banco concederá um crédito especial aos seus clientes, variável com
+ * o saldo médio no último ano. Faça um programa que leia o saldo médio
+ * de um cliente e calcule o valor do crédito de acordo com a tabela abaixo.
+ * Mostre uma mensagem informando o saldo médio e o valor do crédito.
+ * Implemente um método para calcular o valor do crédito.
+ */
+
+import java.util.Scanner;
+
+public class Ex11
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        double saldo = 0, credito = 0;
+        
+        System.out.println("\fQual foi o seu saldo médio no ano passado?");
+        saldo = in.nextDouble();
+        credito = calcularCredito(saldo);
+        
+        System.out.println("Saldo médio: " + saldo + "\nCŕedito: " + credito);
+    }
+    
+    public static double calcularCredito(double saldo) {
+        if (saldo > 4000)
+            return saldo * 0.25;
+            
+        else if (saldo > 2500)
+            return saldo * 0.20;
+            
+        else if (saldo > 1500)
+            return saldo * 0.15;
+            
+        else if (saldo > 500)
+            return saldo * 0.10;
+            
+        else 
+            return 0;
+    }
+}
