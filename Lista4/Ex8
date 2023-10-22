@@ -1,0 +1,32 @@
+/* Faça um programa que leia um número inteiro de 4 dígitos e o escreva
+ * invertido. Exemplo: 1234 -> 4321 . A inversão do valor deve ser feita por
+ * um método. Só podem ser usados valores inteiros. O valor de entrada não
+ * pode ser lido digito a dígito.
+ */
+
+import java.util.Scanner;
+
+public class Ex8
+{
+    public static void main(String agrs[]) {
+        Scanner in = new Scanner(System.in);
+        int numero;
+
+        System.out.println("\fDigite um número de 4 dígitos: ");
+        numero = in.nextInt();
+
+        System.out.println("\nNúmero invertido: " + inverter(numero));
+    }
+
+    public static int inverter(int numero) {
+        int milhar, centena, dezena, unidade, invertido;
+
+        milhar = numero/1000;
+        centena = (numero - (milhar * 1000))/100;
+        dezena  = (numero - (milhar * 1000 + centena * 100))/10;
+        unidade =  numero - (milhar * 1000 + centena * 100 + dezena * 10);
+
+        invertido = (unidade * 1000) + (dezena * 100) + (centena * 10) + milhar;
+        return invertido;
+    }
+}
