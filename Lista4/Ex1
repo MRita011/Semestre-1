@@ -1,0 +1,34 @@
+/* 1. Faça um programa que leia 3 valores, calcule e escreva a média aritmética
+ * desses valores. A média deve ser calculada por um método.
+ */
+
+import java.util.Scanner;
+
+public class Ex1
+{
+    public static void main(String agrs[]) {
+        Scanner in = new Scanner(System.in);
+        double v1, v2, v3;
+
+        System.out.println("\fDigite o valor 1: ");
+        v1 = in.nextDouble();
+
+        System.out.println("\nDigite o valor 2: ");
+        v2 = in.nextDouble();
+
+        System.out.println("\nDigite o valor 3: ");
+        v3 = in.nextDouble();
+
+        // chamando o método direto na saída de dados
+        System.out.println("\nMédia: " + calcularMedia(v1, v2, v3));
+
+        // chamando o método por uma variável
+        double media = calcularMedia(v1, v2, v3);
+        System.out.println("\nMédia (var de método): " + media);
+    }
+
+    public static double calcularMedia(double v1, double v2, double v3) {
+        double media = (v1 + v2 + v3)/3;
+        return media;
+    }
+}
