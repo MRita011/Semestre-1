@@ -1,0 +1,127 @@
+/* Construa a classe Aluno de Fundamentos de Programação. Todo Aluno dessa disciplina possui:
+ * nome
+ * matricula
+ * frequência
+ * 4 notas (P1, P2, P3 e Media de Exercícios)
+ * graus G1 e G2.
+
+ * Defina os atributos e implemente os métodos de instância básicos adequados para esta classe. 
+ * Implemente também métodos que calculam o grau G1 e se o aluno foi aprovado por 
+ * média (média mínima de 7 no grau G1 e frequência mínima de 75%).
+ */
+
+public class Alunos 
+{
+    private String nome;
+    private int matricula;
+    private double frequencia;
+    private double p1, p2, p3, me;
+
+    // Construtor para inicializar os atributos
+    public Alunos () {
+        this.nome = nome;
+        this.matricula = matricula;
+        this.frequencia = frequencia;
+        this.p1 = p1;
+        this.p2 = p2;
+        this.p3 = p3;
+        this.me = me;
+    }
+
+    // Métodos getters e setters para cada atributo
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+
+    public double getFrequencia() {
+        return frequencia;
+    }
+
+    public void setFrequencia(double frequencia) {
+        this.frequencia = frequencia;
+    }
+
+    public double getP1() {
+        return p1;
+    }
+
+    public void setP1(double p1) {
+        this.p1 = p1;
+    }
+
+    public double getP2() {
+        return p2;
+    }
+
+    public void setP2(double p2) {
+        this.p2 = p2;
+    }
+
+    public double getP3() {
+        return p3;
+    }
+
+    public void setP3(double p3) {
+        this.p3 = p3;
+    }
+
+    public double getMe() {
+        return me;
+    }
+
+    public void setMe(double me) {
+        this.me = me;
+    }
+
+    // Método para calcular a nota G1
+    public double calcularG1() {
+        // G1 = (P1 + 2 * P2 + P3 + 2 * Me) / 6
+        double g1 = (p1 + 2 * p2 + p3 + 2 * me) / 6;
+        return g1;
+    }
+
+    // Método para verificar se o aluno foi aprovado por média
+    public String validarAprovacao() {
+        double g1 = calcularG1();
+        boolean frequenciaValida = validarFrequencia();
+
+        if (g1 >= 7 && frequenciaValida) 
+            return "APROVADO";
+            
+        else if (g1 <= 4 && frequenciaValida) 
+            return "EM G2";
+            
+        else 
+            return "REPROVADO";
+    }
+    
+    // Método para validar a frequência
+    public boolean validarFrequencia() {
+        return frequencia >= 75;
+    }
+    
+    // Método toString para exibir informações do aluno
+    @Override
+    public String toString() {
+        return "\nNome: " + getNome() +
+               "\nMatrícula: " + getMatricula() +
+               "\nProva 1: " + getP1() +
+               "\nProva 2: " + getP2() +
+               "\nProva 3: " + getP3() +
+               "\nFrequência: " + getFrequencia() + "%" +
+               "\nGrau 1: " + calcularG1() +
+               "\nSituação: " + validarAprovacao();
+    }
+}
