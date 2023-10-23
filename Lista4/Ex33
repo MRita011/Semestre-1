@@ -1,0 +1,35 @@
+/*  Faça um programa que leia uma string e a escreva sem as vogais. Crie um
+ * método que recebe a string como parâmetro e a devolve sem as vogais. 
+ */
+
+import java.util.Scanner;
+
+public class Ex33 
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        String palavra = "";
+
+        System.out.println("\fDigite uma palavra: ");
+        palavra = in.nextLine();
+
+        System.out.println("\nPalavra: " + palavra + "\nReescrita (sem vogais): " + removerVogal(palavra));
+    }
+
+    public static String removerVogal(String palavra) {
+        String novaString = "";
+
+        for (int i = 0; i < palavra.length(); i++) {
+            char letra = palavra.charAt(i);
+            if (!isVogal(letra)) {
+                novaString += letra;
+            }
+        }
+        return novaString;
+    }
+
+    public static boolean isVogal(char letra) {
+        letra = Character.toLowerCase(letra); // Converta para minúscula para tratar maiúsculas e minúsculas
+        return letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u';
+    }
+}
