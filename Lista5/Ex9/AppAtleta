@@ -1,0 +1,42 @@
+// SEMANA 13: 23/10
+ 
+import java.util.Scanner;
+
+public class AppAtleta 
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        Atleta atleta = new Atleta();
+        double bancaA, n1, n2, n3, n4, n5, n6, notaFinal;
+        
+        System.out.println("\fDigite a nota de partida: ");
+        bancaA = in.nextDouble();
+        atleta.setBancaA(bancaA);
+        
+        System.out.println("\nDigite a 1ª nota da banca B: ");
+        n1 = in.nextDouble();
+        atleta.setN1(n1);
+        
+        System.out.println("\nDigite a 2ª nota da banca B: ");
+        n2 = in.nextDouble();
+        atleta.setN2(n2);
+        
+        System.out.println("\nDigite a 3ª nota da banca B: ");
+        n3 = in.nextDouble();
+        atleta.setN3(n3);
+        
+        System.out.println("\nDigite a 4ª nota da banca B: ");
+        n4 = in.nextDouble();
+        atleta.setN4(n4);
+        
+        System.out.println("\nDigite a 5ª nota da banca B: ");
+        n5 = in.nextDouble();
+        atleta.setN5(n5);
+        
+        System.out.println("\nDigite a 6ª nota da banca B: ");
+        n6 = in.nextDouble();
+        atleta.setN6(n6);
+        
+        System.out.println(atleta.toString());
+    }
+}
