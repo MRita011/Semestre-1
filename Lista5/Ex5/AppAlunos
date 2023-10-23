@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class AppAlunos
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        Alunos aluno = new Alunos();
+
+        String nome = "";
+        double p1, p2, p3, me, frequencia, cont = 4;
+        int matricula = 0;
+
+        System.out.print("\fInsira seu nome: ");
+        nome = in.nextLine();
+        aluno.setNome(nome);
+        
+        System.out.print("\nDigite sua matrícula: ");
+        matricula = in.nextInt();
+        aluno.setMatricula(matricula);
+
+        System.out.print("\nDigite a nota da prova 1: ");
+        p1 = in.nextDouble();
+        aluno.setP1(p1);
+
+        System.out.print("\nDigite a nota da prova 2: ");
+        p2 = in.nextDouble();
+        aluno.setP2(p2);
+
+        System.out.print("\nDigite a nota da prova 3: ");
+        p3 = in.nextDouble();
+        aluno.setP3(p3);
+
+        System.out.print("\nDigite a média de exercícios: ");
+        me = in.nextDouble();
+        aluno.setMe(me);
+
+        System.out.print("\nDigite a frequência: ");
+        frequencia = in.nextDouble();
+        aluno.setFrequencia(frequencia);
+
+        System.out.println(aluno.toString());
+    }
+}
