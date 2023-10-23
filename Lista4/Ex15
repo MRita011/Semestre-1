@@ -1,0 +1,94 @@
+/* Escrever um programa que lê a matrícula, as 3 notas obtidas por um aluno
+ * nas 3 verificações e a média dos exercícios que fazem parte da avaliação.
+
+ * Calcular a média de aproveitamento, usando a fórmula:
+ * MA = (n1 + (n2 * 2) + (n3 * 3) + ME)/7; 
+
+ * A atribuição de conceitos deve obedecer a tabela abaixo:
+
+ * MÉDIA DE APROVEITAMENTO (MA) | CONCEITO
+ *          9 a 10              |    A
+ *        7.5 a 8.9             |    B
+ *        6.0 a 7.4             |    C
+ *        4.0 a 5.9             |    D
+ *      abaixo de 4.0           |    E
+
+ * O programa deve escrever a matrícula,
+ * suas notas, 
+ * a média dos exercícios,
+ * a média de aproveitamento, 
+ * o conceito correspondente
+ * a mensagem: APROVADO se o conceito for A,B ou C
+ * REPROVADO se o conceito for D ou E. 
+ * Crie um método para calcular a média de aproveitamento. 
+ * Implemente também um método para denir o conceito. 
+ * E ainda construa um método que verifica se o aluno foi aprovado ou não.
+ */
+
+import java.util.Scanner;
+
+public class Ex15 
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int matricula = 0;
+        double n1, n2, n3, me, ma;
+
+        System.out.print("\fDigite a 1ª nota: ");
+        n1 = in.nextDouble();
+
+        System.out.print("\nDigite a 2ª nota: ");
+        n2 = in.nextDouble();
+
+        System.out.print("\nDigite a 3ª nota: ");
+        n3 = in.nextDouble();
+
+        System.out.print("\nDigite a média dos exercícios: ");
+        me = in.nextDouble();
+
+        //------------------------------------------------
+        ma = mediaAproveitamento(n1, n2, n3, me);
+        String conceito = definirConceito(ma);
+        System.out.println(lerDados(n1, n2, n3, me, ma, conceito));
+
+        if (verificarAprovacao(conceito)) {
+            System.out.println("\nAPROVADO");
+        } else {
+            System.out.println("\nREPROVADO");
+        }
+    }
+
+    public static double mediaAproveitamento(double n1, double n2, double n3, double me) {
+        return (n1 + (n2 * 2) + (n3 * 3) + me) / 7;
+    }
+
+    public static String definirConceito(double ma) {
+        if (ma >= 9 && ma <= 10) 
+            return "A";
+
+        else if (ma >= 7.5 && ma < 9) 
+            return "B";
+
+        else if (ma >= 6.0 && ma < 7.5) 
+            return "C";
+
+        else if (ma >= 4.0 && ma < 6.0) 
+            return "D";
+
+        else 
+            return "E";
+    }
+
+    public static String lerDados(double n1, double n2, double n3, double me, double ma, String conceito) {
+        return "\nNota 1: " + n1 + 
+               "\nNota 2: " + n2 + 
+               "\nNota 3: " + n3 + 
+               "\nMédia dos Exercícios: " + me +
+               "\nMédia Aproveitamento: " + ma + 
+               "\nConceito: " + conceito;
+    }
+
+    public static boolean verificarAprovacao(String conceito) {
+        return conceito.equals("A") || conceito.equals("B") || conceito.equals("C");
+    }
+}
