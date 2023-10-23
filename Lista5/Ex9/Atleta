@@ -1,0 +1,175 @@
+/* SEMANA 13: 23/10
+
+ * 9. A nota de um Atleta de ginástica olímpica é a soma das notas de duas
+ * bancas de árbitros: banca A e banca B. 
+
+ * A nota da banca A é a nota de partida do atleta. 
+ * A nota da banca B é calculada da seguinte forma:
+ * (a) 6 juízes atribuem notas ao atleta;
+ * (b) a nota mais baixa e a mais alta são descartadas;
+ * (c) é feita a média das notas restantes.
+
+ * Defina os atributos e os métodos construtor, modificadores e de acesso.
+
+ * Considere que as notas das bancas e dos árbitros iniciam em zero. 
+
+ * Implemente também um método que devolve a maior nota e outro que devolve a menor nota dentre as 6. 
+ * Implemente ainda um método que calcula a média da banca B e outro método que
+ * calcula a nota final do atleta. 
+
+ * Construa também um método que devolve um vetor com as notas do atleta em ordem crescente.
+ */
+
+public class Atleta
+{
+    private double bancaA;
+    private double bancaB;
+    private double notaFinal;
+    private double menorNota;
+    private double maiorNota;
+    private double n1;
+    private double n2;
+    private double n3;
+    private double n4;
+    private double n5;
+    private double n6;
+
+    public Atleta() {
+        bancaA = 0;
+        bancaB = 0;
+        notaFinal = 0;
+        maiorNota = 0;
+        menorNota = 0;
+        n1 = 0;
+        n2 = 0;
+        n3 = 0;
+        n4 = 0;
+        n5 = 0;
+        n6 = 0;
+    }
+
+    public double getBancaA() {
+        return bancaA;
+    }
+
+    public void setBancaA(double bancaA) {
+        this.bancaA = bancaA;
+    }
+
+    public double getN1() {
+        return n1;
+    }
+
+    public void setN1(double n1) {
+        this.n1 = n1;
+    }
+
+    public double getN2() {
+        return n2;
+    }
+
+    public void setN2(double n2) {
+        this.n2 = n2;
+    }
+
+    public double getN3() {
+        return n3;
+    }
+
+    public void setN3(double n3) {
+        this.n3 = n3;
+    }
+
+    public double getN4() {
+        return n4;
+    }
+
+    public void setN4(double n4) {
+        this.n4 = n4;
+    }
+
+    public double getN5() {
+        return n5;
+    }
+
+    public void setN5(double n5) {
+        this.n5 = n5;
+    }
+
+    public double getN6() {
+        return n6;
+    }
+
+    public void setN6(double n6) {
+        this.n6 = n6;
+    }
+
+    // ------ MÉTODOS ESPECÍFICOS -------- //
+
+    public double maiorNota() {
+        double maiorNota = 0;
+
+        // achar maior nota
+        if (n1 > n2 && n1 > n3 && n1 > n4 && n1 > n5 && n1 > n6) 
+            maiorNota = n1;
+
+        else if (n2 > n1 && n2 > n3 && n2 > n4 && n2 > n5 && n2 > n6) 
+            maiorNota = n2;
+
+        else if (n3 > n1 && n3 > n2 && n3 > n4 && n3 > n5 && n3 > n6) 
+            maiorNota = n3;
+
+        else if (n4 > n1 && n4 > n2 && n4 > n3 && n4 > n5 && n4 > n6) 
+            maiorNota = n4;
+
+        else if (n5 > n1 && n5 > n2 && n5 > n3 && n5 > n4 && n5 > n6) 
+            maiorNota = n5;
+
+        else
+            maiorNota = n6;
+
+        return maiorNota;
+    }
+
+    public double menorNota() {
+        double menorNota = 0;
+        // achar menor nota
+        if (n1 < n2 && n1 < n3 && n1 < n4 && n1 < n5 && n1 < n6) 
+            menorNota = n1;
+
+        else if (n2 < n1 && n2 < n3 && n2 < n4 && n2 < n5 && n2 < n6) 
+            menorNota = n2;
+
+        else if (n3 < n1 && n3 < n2 && n3 < n4 && n3 < n5 && n3 < n6) 
+            menorNota = n3;
+
+        else if (n4 < n1 && n4 < n2 && n4 < n3 && n4 < n5 && n4 < n6) 
+            menorNota = n4;
+
+        else if (n5 < n1 && n5 < n2 && n5 < n3 && n5 < n4 && n5 < n6) 
+            menorNota = n5;
+
+        else
+            menorNota = n6;
+
+        return menorNota;
+    }
+
+    public double bancaB() {
+        double remover = menorNota() + maiorNota();
+        bancaB = ((n1 + n2 + n3 + n3 + n5 + n6) - remover)/4;
+        return bancaB;
+    }
+
+    public double notaFinal() {
+        bancaA = getBancaA();
+        notaFinal = bancaA + bancaB;
+        return notaFinal;
+    }
+
+    public String toString() {
+        return "\nBanca A: " + getBancaA() +
+        "\nBanca B: " + bancaB() +
+        "\nNota final: " + notaFinal();
+    }
+}
