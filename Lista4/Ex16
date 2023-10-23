@@ -1,0 +1,82 @@
+/* Escreva um programa que leia o salário de contribuição, calcule e escreva
+ * o valor em R$ a ser pago para o INSS. Para isso, use a tabela a seguir. 
+ * Para valores maiores que os denidos na tabela, exiba o teto que é 11% de R$ 4.390,24.
+
+ * SALÁRIO CONTRIBUIÇAO(R$) | ALIQUOTA PARA FINS DE RECOLHIMENTO (5)
+ *      até 1.317,07        |                 8,00
+ * de 1.317,08 a 2.195,12   |                 9,00
+ * de 2.195,13 a 4.390,24   |                11,00
+
+ * O programa deve também calcular o do Imposto de Renda. Para isso, use
+ * a tabela dada abaixo. Para calcular o valor do imposto, aplique a alíquota
+ * ao valor lido e desconte a parcela a deduzir correspondente.
+
+ *     BASE DE CÁLCULO      | ALÍQUOTA | PARCELA A DEUDUZIR
+ *      até 1.863,22        |  isento  |        0,00
+ *  de 1.863,23 a 2.799,86  |   7.5%   |      140,12
+ *  de 2.799,87 a 3.733,19  |    15%   |      350,11
+ *  de 3.733,20 a 4.664,68  |  22.5%   |      630,10
+ *      acima de 4.664,68   |  27.5%   |      863,33
+
+ * Os cálculos referentes ao INSS e ao IR devem ser feitos com apenas duas
+ * casas decimais e implementados por métodos (um para cada cálculo). O
+ * programa deve exibir ainda o salário bruto e o líquido (salário com as
+ * deduções calculadas pelos métodos).
+ */
+
+import java.util.Scanner;
+
+public class Ex16
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        double contribuicao, inss, ir, salarioBruto, salarioLiquido;
+
+        System.out.print("\fInforme o salário de contribuição (R$): ");
+        contribuicao = in.nextDouble();
+
+        inss = calcularInss(contribuicao);
+        ir = importoRenda(contribuicao);
+
+        salarioBruto = contribuicao;
+        salarioLiquido = contribuicao - inss - ir;
+
+        System.out.println(
+            "\nSalário Bruto: R$" + salarioBruto +
+            "\nINSS a ser pago: R$" + inss +
+            "\nImposto de Renda a ser pago: R$" + ir +
+            "\nSalário Líquido: R$" + salarioLiquido);
+    }
+
+    public static double calcularInss(double contribuicao) {
+        if (contribuicao <= 1317.07) 
+            return contribuicao * 0.08;
+
+        else if (contribuicao <= 2195.12) 
+            return contribuicao * 0.09;
+
+        else 
+            return 4390.24 * 0.11;
+    }
+
+    public static double importoRenda(double contribuicao) {
+        double baseCalculo = contribuicao, ir;
+
+        if (baseCalculo <= 1863.22) 
+            ir = 0.00;
+            
+        else if (baseCalculo <= 2799.86) 
+            ir = baseCalculo * 0.075 - 140.12;
+            
+        else if (baseCalculo <= 3733.19) 
+            ir = baseCalculo * 0.15 - 350.11;
+            
+        else if (baseCalculo <= 4664.68) 
+            ir = baseCalculo * 0.225 - 630.10;
+            
+        else 
+            ir = baseCalculo * 0.275 - 863.33;
+
+        return ir;
+    }
+}
