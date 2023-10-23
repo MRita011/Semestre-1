@@ -1,0 +1,29 @@
+/* Construa um programa que leia o nome de uma pessoa. A seguir, construa
+ * um método que recebe o nome lido como parâmetro e indica (devolve)
+ * a quantidade de ocorrências da letra A nesse nome. O programa deve
+ * escrever na tela a quantidade encontrada.
+ */
+
+import java.util.Scanner;
+
+public class Ex31
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        String nome = "";
+        int cont = 0;
+
+        System.out.println("\fDigite o seu nome: ");
+        nome = in.nextLine();
+
+        System.out.println("\nA letra 'a' aparece " + ocorrenciasA(nome, cont) + " no nome " + nome);
+    }
+
+    public static int ocorrenciasA(String nome, int cont) {
+        for (int i = 0; i < nome.length(); i++) {
+            if (nome.charAt(i) == 'a')
+                cont++;
+        }
+        return cont;
+    }
+}
