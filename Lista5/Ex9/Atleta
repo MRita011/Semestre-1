@@ -157,14 +157,12 @@ public class Atleta
     }
 
     public double bancaB() {
-        double remover = menorNota() + maiorNota();
-        bancaB = ((n1 + n2 + n3 + n3 + n5 + n6) - remover)/4;
+        bancaB = ((n1 + n2 + n3 + n3 + n5 + n6) - menorNota() - maiorNota())/4;
         return bancaB;
     }
 
     public double notaFinal() {
-        bancaA = getBancaA();
-        notaFinal = bancaA + bancaB;
+        notaFinal = getBancaA() + bancaB;
         return notaFinal;
     }
 
