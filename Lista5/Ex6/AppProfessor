@@ -1,0 +1,43 @@
+// SEMANA 13: 25/10
+
+import java.util.Scanner;
+
+public class AppProfessor
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        Professor prof = new Professor();
+
+        String nome = "";
+        double valor = 0;
+        int horas = 0;
+
+        System.out.println("\fDigite seu nome: ");
+        nome = in.nextLine();
+        prof.setNome(nome);
+
+        do {
+            System.out.println("\nInsira o valor das aulas: ");
+            valor = in.nextDouble();
+        } while (valor < 20);
+        prof.setValorHora(valor);
+
+        do {
+            System.out.println("\nInsira a carga horária semanal: ");
+            horas = in.nextInt();
+        } while (horas <= 0 || valor > 44);
+        prof.setCargaHoraria(horas);
+
+        System.out.println("\nNome: " + prof.getNome());
+
+        System.out.println("\nMatrícula: " + prof.getMatricula());
+
+        System.out.println("\nValor da aula: " + prof.getValorHora());
+
+        System.out.println("\nHoras trabalhadas: " + prof.getCargaHoraria());
+
+        System.out.println("\nSalário: " + prof.calcularSalario());
+
+        System.out.println(prof.toString());
+    }
+}
