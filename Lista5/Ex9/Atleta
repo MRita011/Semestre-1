@@ -106,53 +106,54 @@ public class Atleta
 
     // ------ MÉTODOS ESPECÍFICOS -------- //
 
-    public double maiorNota() {
-        double maiorNota = 0;
-
-        // achar maior nota
-        if (n1 > n2 && n1 > n3 && n1 > n4 && n1 > n5 && n1 > n6) 
-            maiorNota = n1;
-
-        else if (n2 > n1 && n2 > n3 && n2 > n4 && n2 > n5 && n2 > n6) 
-            maiorNota = n2;
-
-        else if (n3 > n1 && n3 > n2 && n3 > n4 && n3 > n5 && n3 > n6) 
-            maiorNota = n3;
-
-        else if (n4 > n1 && n4 > n2 && n4 > n3 && n4 > n5 && n4 > n6) 
-            maiorNota = n4;
-
-        else if (n5 > n1 && n5 > n2 && n5 > n3 && n5 > n4 && n5 > n6) 
-            maiorNota = n5;
-
-        else
-            maiorNota = n6;
-
-        return maiorNota;
-    }
-
     public double menorNota() {
-        double menorNota = 0;
+        double menorNota = 10;
+        
         // achar menor nota
-        if (n1 < n2 && n1 < n3 && n1 < n4 && n1 < n5 && n1 < n6) 
+        if (n1 < menorNota)
             menorNota = n1;
-
-        else if (n2 < n1 && n2 < n3 && n2 < n4 && n2 < n5 && n2 < n6) 
+            
+        if (n2 < menorNota)
             menorNota = n2;
-
-        else if (n3 < n1 && n3 < n2 && n3 < n4 && n3 < n5 && n3 < n6) 
+            
+        if (n3 < menorNota)
             menorNota = n3;
-
-        else if (n4 < n1 && n4 < n2 && n4 < n3 && n4 < n5 && n4 < n6) 
+            
+        if (n4 < menorNota)
             menorNota = n4;
-
-        else if (n5 < n1 && n5 < n2 && n5 < n3 && n5 < n4 && n5 < n6) 
+            
+        if (n5 < menorNota)
             menorNota = n5;
-
-        else
+            
+        if (n6 < menorNota)
             menorNota = n6;
 
         return menorNota;
+    }
+
+    public double maiorNota() {
+        double maiorNota = 0;
+        
+        // achar menor nota
+        if (n1 > maiorNota)
+            maiorNota = n1;
+            
+        if (n2 > maiorNota)
+            maiorNota = n2;
+            
+        if (n3 > maiorNota)
+            maiorNota = n3;
+            
+        if (n4 > maiorNota)
+            maiorNota = n4;
+            
+        if (n5 > maiorNota)
+            maiorNota = n5;
+            
+        if (n6 > maiorNota)
+            maiorNota = n6;
+
+        return maiorNota;
     }
 
     public double bancaB() {
@@ -170,6 +171,8 @@ public class Atleta
     public String toString() {
         return "\nBanca A: " + getBancaA() +
         "\nBanca B: " + bancaB() +
-        "\nNota final: " + notaFinal();
+        "\nNota final: " + notaFinal() +
+        "\nMenor nota: " + menorNota() +
+        "\nMaior nota: " + maiorNota();
     }
 }
