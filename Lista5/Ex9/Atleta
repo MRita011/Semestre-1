@@ -1,42 +1,172 @@
-// SEMANA 13: 23/10
- 
-import java.util.Scanner;
+/* SEMANA 13: 23/10
 
-public class AppAtleta 
+ * 9. A nota de um Atleta de ginástica olímpica é a soma das notas de duas
+ * bancas de árbitros: banca A e banca B. 
+
+ * A nota da banca A é a nota de partida do atleta. 
+ * A nota da banca B é calculada da seguinte forma:
+ * (a) 6 juízes atribuem notas ao atleta;
+ * (b) a nota mais baixa e a mais alta são descartadas;
+ * (c) é feita a média das notas restantes.
+
+ * Defina os atributos e os métodos construtor, modificadores e de acesso.
+
+ * Considere que as notas das bancas e dos árbitros iniciam em zero. 
+
+ * Implemente também um método que devolve a maior nota e outro que devolve a menor nota dentre as 6. 
+ * Implemente ainda um método que calcula a média da banca B e outro método que
+ * calcula a nota final do atleta. 
+
+ * Construa também um método que devolve um vetor com as notas do atleta em ordem crescente.
+ */
+
+public class Atleta
 {
-    public static void main(String args[]) {
-        Scanner in = new Scanner(System.in);
-        Atleta atleta = new Atleta();
-        double bancaA, nota;
+    private double bancaA;
+    private double bancaB;
+    private double notaFinal;
+    private double n1;
+    private double n2;
+    private double n3;
+    private double n4;
+    private double n5;
+    private double n6;
+
+    public Atleta() {
+        bancaA = 0;
+        bancaB = 0;
+        notaFinal = 0;
+        n1 = 0;
+        n2 = 0;
+        n3 = 0;
+        n4 = 0;
+        n5 = 0;
+        n6 = 0;
+    }
+
+    public double getBancaA() {
+        return bancaA;
+    }
+
+    public void setBancaA(double bancaA) {
+        this.bancaA = bancaA;
+    }
+
+    public double getN1() {
+        return n1;
+    }
+
+    public void setN1(double n1) {
+        this.n1 = n1;
+    }
+
+    public double getN2() {
+        return n2;
+    }
+
+    public void setN2(double n2) {
+        this.n2 = n2;
+    }
+
+    public double getN3() {
+        return n3;
+    }
+
+    public void setN3(double n3) {
+        this.n3 = n3;
+    }
+
+    public double getN4() {
+        return n4;
+    }
+
+    public void setN4(double n4) {
+        this.n4 = n4;
+    }
+
+    public double getN5() {
+        return n5;
+    }
+
+    public void setN5(double n5) {
+        this.n5 = n5;
+    }
+
+    public double getN6() {
+        return n6;
+    }
+
+    public void setN6(double n6) {
+        this.n6 = n6;
+    }
+
+    // ------ MÉTODOS ESPECÍFICOS -------- //
+
+    public double menorNota() {
+        double menorNota = 10;
         
-        System.out.println("\fDigite a nota de partida: ");
-        bancaA = in.nextDouble();
-        atleta.setBancaA(bancaA);
+        // achar menor nota
+        if (n1 < menorNota)
+            menorNota = n1;
+            
+        if (n2 < menorNota)
+            menorNota = n2;
+            
+        if (n3 < menorNota)
+            menorNota = n3;
+            
+        if (n4 < menorNota)
+            menorNota = n4;
+            
+        if (n5 < menorNota)
+            menorNota = n5;
+            
+        if (n6 < menorNota)
+            menorNota = n6;
+
+        return menorNota;
+    }
+
+    public double maiorNota() {
+        double maiorNota = 0;
         
-        System.out.println("\nDigite a 1ª nota da banca B: ");
-        nota = in.nextDouble();
-        atleta.setN1(nota);
-        
-        System.out.println("\nDigite a 2ª nota da banca B: ");
-        nota = in.nextDouble();
-        atleta.setN2(nota);
-        
-        System.out.println("\nDigite a 3ª nota da banca B: ");
-        nota = in.nextDouble();
-        atleta.setN3(nota);
-        
-        System.out.println("\nDigite a 4ª nota da banca B: ");
-        nota = in.nextDouble();
-        atleta.setN4(nota);
-        
-        System.out.println("\nDigite a 5ª nota da banca B: ");
-        nota = in.nextDouble();
-        atleta.setN5(nota);
-        
-        System.out.println("\nDigite a 6ª nota da banca B: ");
-        nota = in.nextDouble();
-        atleta.setN6(nota);
-        
-        System.out.println(atleta.toString());
+        // achar menor nota
+        if (n1 > maiorNota)
+            maiorNota = n1;
+            
+        if (n2 > maiorNota)
+            maiorNota = n2;
+            
+        if (n3 > maiorNota)
+            maiorNota = n3;
+            
+        if (n4 > maiorNota)
+            maiorNota = n4;
+            
+        if (n5 > maiorNota)
+            maiorNota = n5;
+            
+        if (n6 > maiorNota)
+            maiorNota = n6;
+
+        return maiorNota;
+    }
+
+    public double bancaB() {
+        bancaB = ((n1 + n2 + n3 + n3 + n5 + n6) - menorNota() - maiorNota())/4;
+        return bancaB;
+    }
+
+    public double notaFinal() {
+        notaFinal = getBancaA() + bancaB;
+        return notaFinal;
+    }
+
+    public String toString() {
+        return "\nBanca A: " + getBancaA() +
+        "\nBanca B: " + bancaB() +
+        "\nNota final: " + notaFinal() +
+        "\nMenor nota: " + menorNota() +
+        "\nMaior nota: " + maiorNota();
     }
 }
