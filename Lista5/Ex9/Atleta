@@ -25,8 +25,6 @@ public class Atleta
     private double bancaA;
     private double bancaB;
     private double notaFinal;
-    private double menorNota;
-    private double maiorNota;
     private double n1;
     private double n2;
     private double n3;
@@ -38,8 +36,6 @@ public class Atleta
         bancaA = 0;
         bancaB = 0;
         notaFinal = 0;
-        maiorNota = 0;
-        menorNota = 0;
         n1 = 0;
         n2 = 0;
         n3 = 0;
