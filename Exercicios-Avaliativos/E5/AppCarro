@@ -1,0 +1,52 @@
+/* Rafael e Maria Rita
+ * 1) Instancie um objeto carro1. 
+ * 2) Abasteça o carro1 com 30 litros de combustível
+ * 3) Abasteça o carro1 com R$ 50,00
+ * 4) Ande 200 km com o carro1
+ * 5) Mostre quantos quilômetros o carro1 pode andar no momento
+ * 6) Informe quantos tanques de combustível o carro1 poderia andar percorrer 3000km
+ * 7) Mostre todo conteúdo do carro1 através de uma saída de dados.
+ */
+
+import java.util.Scanner;
+
+public class AppCarro 
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        Carro carro1 = new Carro();
+        String placa = "";
+
+        System.out.println("Digite a placa do carro: ");
+        placa = in.nextLine();
+        carro1.setPlaca(placa);
+
+        System.out.println("Digite o combustível atual do carro: ");
+        double combustivel = in.nextDouble();
+        carro1.setCombustivel(combustivel);
+
+        System.out.println("Digite 1 para abastecer com litros e 2 para abastecer com reais.");
+        int opcao = in.nextInt();
+
+        if(opcao == 1) {
+            System.out.println("\nDigite quantos litros deseja abastecer: ");
+            double litros = in.nextDouble();
+            carro1.setLitros(litros);
+        }
+        else {
+            System.out.println("\nDigite qual o valor que deseja abastecer: ");
+            double valor = in.nextDouble();
+            carro1.setValor(valor);
+        }
+
+        System.out.println("\nDigite quantos quilometros deseja percorrer: ");
+        double km = in.nextDouble();
+        carro1.setKm(km);
+
+        System.out.println("\nO carro pode percorrer: " + carro1.capacidadeDeslocamento() + " km.");
+
+        System.out.println("\nO carro precisa de " + carro1.previsaoCombustivel() + " tanques para percorrer 3000km.");
+
+        System.out.println(carro1.toString());
+    }
+}
