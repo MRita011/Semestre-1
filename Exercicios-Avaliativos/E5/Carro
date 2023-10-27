@@ -1,0 +1,137 @@
+/* Implemente a classe Carro, considerando que todo carro possui placa, kilometragem e 
+ * capacidade do tanque de combustivel. Considere ainda que este objeto mantém uma quantidade de 
+ * combustível em seu tanque e o seu consumo médio (km/litros). 
+
+ * Defina os atributos e implemente os métodos: construtor, modificadores, de acesso e toString para esta classe. 
+
+ * A seguir, implemente também os métodos 
+ * a) abastecerTipoLitros que é responsável por adicionar mais litros de combustivel (parâmetro) ao tanque. 
+
+ * b) abastecerTipoReais que é responsável também por adicionais mais litros de combustível ao tanque, 
+ * mas a partir de um valor informado (como parâmetro) em Reais (R$). Nesse caso, será necessário saber 
+ * o preço do litro de combustível para calcular a quantidade de litros que o carro receberá. 
+
+ * c) locomover, que consome combustivel a partir da quantidade (parâmetro) de km percorrida pelo carro. 
+ * d) capacidadeDeslocamento que define quantos km o carro pode andar a partir do combustivel disponível no tanque. 
+ * e) previsaoCombustivel que informa quantos tanques de combustivel serão necessários para percorrer uma 
+ * certa distância (informada como parâmetro em km).
+ */
+
+public class Carro 
+{
+    private String placa;
+    private double abastecer;
+    private double km;
+    private double combustivel;
+    private double litros;
+    private double reais;
+    private double valor;
+
+    public Carro() {
+        placa = "";
+        abastecer = 0;
+        km = 0;
+        combustivel = 0;
+        litros = 0;
+        reais = 5.80;
+        valor = 0;
+    }
+
+    public String getPlaca(){
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public double getKm(){
+        return km;
+    }
+
+    public void setKm(double km) {
+        this.km = km;
+    }
+
+    public double getCombustivel(){
+        return combustivel;
+    }
+
+    public void setCombustivel(double combustivel) {
+        this.combustivel = combustivel;    
+    }
+
+    public double getabastecer(){
+        return abastecer;
+    }
+
+    public void setabastecer(double abastecer) {
+        this.abastecer = abastecer;
+    }
+
+    public double getLitros(){
+        return litros;
+    }
+
+    public void setLitros (double litros) {
+        this.litros = litros;
+    }
+
+    public double getValor(){
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    // ----- METÓDOS ESPECÍFICOS ------ //
+
+    public double abastecerLitros(double litros, double combustivel) {
+        //a) abastecerLitros que é responsável por adicionar mais litros de combustivel (parâmetro) ao tanque. 
+        combustivel = combustivel + litros;
+        return combustivel;
+    }
+
+    public double abastecerReais (double litros, double valor) {
+        /* b) abastecerReais que é responsável também por adicionais mais litros de combustível ao tanque, 
+         * mas a partir de um valor informado (como parâmetro) em Reais (R$). Nesse caso, será necessário saber 
+         * o preço do litro de combustível para calcular a quantidade de litros que o carro receberá. 
+         */
+        combustivel = valor/reais;
+        return combustivel;
+    }
+    
+    public double locomocao(double litros) {
+        // (c) locomover, que consome combustivel a partir da quantidade (parâmetro) de km percorrida pelo carro. 
+        double km = getKm();
+        double consumo = km/litros;
+        return consumo;
+    }
+    
+    public double capacidadeDeslocamento() {
+        /* (d) capacidadeDeslocamento que define quantos km o carro pode andar a 
+         * partir do combustivel disponível no tanque. 
+         */
+       double consumo = locomocao(litros);  
+       double capacidadeDeslocamento = consumo/km;
+       
+       return capacidadeDeslocamento;
+    }
+    
+    public double previsaoCombustivel() {
+        /*  previsaoCombustivel que informa quantos tanques de combustivel 
+         * serão necessários para percorrer uma certa distância (informada como parâmetro em km).
+         */
+        double tanqueCapacidade = 55;
+        double capacidadeDeslocamento = capacidadeDeslocamento();
+        double previsao = (capacidadeDeslocamento/tanqueCapacidade) * 3000;
+        return previsao;
+    }
+    
+    public String toString() {
+        return "\nCombustível do carro: " + getCombustivel() + "\nCalculo da locomoção: " + locomocao(litros) + 
+         "\nCapacidade de deslocamento: " + capacidadeDeslocamento() + "\nPrevisão do combustível: " + previsaoCombustivel();
+    }
+    
+}
