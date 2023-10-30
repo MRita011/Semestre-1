@@ -1,0 +1,81 @@
+/* SEMANA 14: 30/10
+
+ * 1. Faça um programa que leia um vetor A com 10 valores inteiros, todos positivos. 
+ * A seguir, o programa deve escrever:
+ * (a) os valores impares de A.
+ * (b) os valores das posições impares de A.
+ * (c) os valores impares de A que estão em posições pares.
+ * (d) o vetor A na ordem inversa.
+ */
+
+import java.util.Scanner;
+
+public class Ex1
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int [] A = inserirValores();
+        int [] valoresImpares;
+        
+    }
+
+    public static int [] inserirValores() {
+        Scanner in = new Scanner(System.in);
+        int [] A = new int [10];
+        int valores = 0;
+
+        for (int i = 0; i < 10; i++) {
+            valores = in.nextInt();
+            A[i] = valores;
+        }
+        return A;
+    }
+
+    public static int[] valoresImparesA(int[] A) {
+        // os valores impares de A.
+        int [] valoresImpares = new int[10];
+        int valorImpar = 0;
+
+        for (int i = 0; i < 10; i++) {
+            if (A[i] % 2 == 1) {
+                valorImpar++;
+                valoresImpares[i] = valorImpar;
+            }
+        }
+        return valoresImpares;
+    }
+
+    public static int valorImparPosicoes(int[] valorImpares, int[] A) {
+        // os valores das posições impares de A.
+        int valorPosicoes = 0;
+
+        for(int i = 0; i < 10; i++) {
+            if (i == valorImpares[i])
+                valorPosicoes = A[i];
+        }
+        return valorPosicoes;
+    }
+
+    public static int valoresParesPosicoes(int[] valoresImpares) {
+        // os valores impares de A que estão em posições pares.
+        int posicoesPar = 0;
+
+        for (int i = 0; i < 10; i++) {
+            if (valoresImpares[i] % 2 == 0)
+                posicoesPar++;
+        }
+        return posicoesPar;
+    }
+    
+    public static int[] inversoA(int[] A) {
+        // o vetor A na ordem inversa.
+        int [] vetorInverso = new int[10];
+        int inversoA = 0;
+        
+        for (int i = 10; i > 0; i--) {
+            inversoA++;
+            vetorInverso[i] = inversoA;
+        }
+        return vetorInverso;
+    }
+}
