@@ -3,8 +3,6 @@ import java.util.Scanner;
 public class Notas
 {
     public static void main(String args[]) {
-        Scanner in = new Scanner(System.in);
-        // declara o vetor na main
         double [] notasP1;
         double nota;
 
@@ -27,12 +25,12 @@ public class Notas
             nota = in.nextDouble();
             notasP1[i] = nota;
         }
-
         return notasP1;
     }
 
     public static int maior7(double[] notasP1) {
         int contaMais7 = 0;
+        
         for(int i = 0; i < 30; i++) {
             if (notasP1[i] >= 7)
                 contaMais7++;
