@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Notas
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        // declara o vetor na main
+        double [] notasP1;
+        double nota;
+
+        notasP1 = inserirNotas();
+        int contaMaior7 = maior7(notasP1);
+        double media = mediaNotas(notasP1);
+
+        System.out.println("\fA quantidade de notas acima de 7 é: " + contaMaior7);
+        System.out.println("\nAs médias das notas P1 é: " + media);
+    }
+
+    public static double[] inserirNotas() {
+        Scanner in = new Scanner(System.in);
+        // declarando um vetor
+        double [] notasP1 = new double[30];
+        double nota;
+
+        // inserindo elementos no vetor
+        for(int i = 0; i < 30; i++) {
+            nota = in.nextDouble();
+            notasP1[i] = nota;
+        }
+
+        return notasP1;
+    }
+
+    public static int maior7(double[] notasP1) {
+        int contaMais7 = 0;
+        for(int i = 0; i < 30; i++) {
+            if (notasP1[i] >= 7)
+                contaMais7++;
+        }
+        return contaMais7;
+    }
+
+    public static double mediaNotas(double[] notasP1) {
+        double soma = 0, media = 0;
+
+        for(int i = 0; i < 30; i++) {
+            // guardando a soma de todas as posições do vetor 
+            soma = soma + notasP1[i];
+            media = soma/30;
+        }
+        return media;
+    }
+}
