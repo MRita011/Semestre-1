@@ -1,0 +1,37 @@
+/* 13. Implemente um programa que preenche e escreve um vetor com os 100
+ * primeiros valores primos. A identicação dos primos e a escrita do vetor
+ * devem ser denidas por métodos.
+ */
+
+public class Ex13
+{
+    public static void main(String args[]) {
+        int [] resultado = montarVetorPrimos();
+
+        for (int i = 0; i <= 99; i++) {
+            System.out.println(resultado[i]);
+        }
+    }
+
+    public static int[] montarVetorPrimos() {
+        int quantidade = 0, numero = 2, contDiv = 0;
+        int[] vetorPrimos = new int[100];
+
+        // variável quantidade percorre o vetor para encontrar os primos
+        while (quantidade <= 99) {
+            contDiv = 0;
+
+            for (int i = 1; i <= numero; i++) {
+                if (numero % i == 0) 
+                    contDiv++;
+            }
+
+            if (contDiv == 2) {
+                vetorPrimos[quantidade] = numero;
+                quantidade++;
+            }
+            numero++;
+        }
+        return vetorPrimos;
+    } 
+}
