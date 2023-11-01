@@ -1,0 +1,71 @@
+/* 10. Crie um programa que leia 2 vetores, A e B, ambos de 10 valores reais. 
+ * O programa deve calcular e guardar em um vetor soma, a soma dos elementos de A com B. 
+ * A leitura dos vetores, o cálculo e escrita do vetor soma devem ser feitos por métodos.
+ */
+
+import java.util.Scanner;
+
+public class Ex10
+{
+    public static void main(String args[]) {
+        double[] vetorA = vetorA();
+        double[] vetorB = vetorB();
+        double[] somaAB = vetorSoma(vetorA, vetorB);
+        
+        System.out.println("\fVetor A: ");
+        for (int i = 0; i < 10; i++) {
+             System.out.println("[" + i + "]" + vetorA[i]);
+        }
+        
+        System.out.println("\nVetor B: ");
+        for (int i = 0; i < 10; i++) {
+             System.out.println("[" + i + "]" + vetorB[i]);
+        }
+        
+        System.out.println("\nVetor Soma: ");
+        for (int i = 0; i < 10; i++) {
+             System.out.println("[" + i + "]" + somaAB[i]);
+        }
+    }
+
+    public static double[] vetorA() {
+        Scanner in = new Scanner(System.in);
+        
+        double[] vetorA = new double[10];
+        double valoresA = 0;
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println("\nDigite um valor: ");
+            valoresA = in.nextDouble();
+            vetorA[i] = valoresA;
+        }
+        return vetorA;
+    }
+    
+     public static double[] vetorB() {
+        Scanner in = new Scanner(System.in);
+        
+        double[] vetorB = new double[10];
+        double valoresB = 0;
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println("\nDigite um valor: ");
+            valoresB = in.nextDouble();
+            vetorB[i] = valoresB;
+        }
+        return vetorB;
+    }
+    
+    public static double[] vetorSoma(double[] vetorA, double[] vetorB) {
+        double[] vetorSoma = new double[10];
+        double soma = 0, posicaoA = 0, posicaoB = 0;
+        
+        for (int i = 0; i < 10; i++) {
+            posicaoA = vetorA[i];
+            posicaoB = vetorB[i];
+            
+            vetorSoma[i] = posicaoA + posicaoB;
+        }
+        return vetorSoma;
+    }
+}
