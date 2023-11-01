@@ -1,0 +1,65 @@
+/* 15. Faça um programa que leia um vetor A com 20 elementos, todos inteiros e não negativos.
+ * O programa deve criar um vetor S com o somatório de cada valor em A. 
+ * O programa ao final deve escrever:
+ * O vetor S. 
+ * A leitura de A, 
+ * O somatório, 
+ * A definição do vetor S 
+ * A escrita dele ser feita por métodos.
+ */
+
+import java.util.Scanner;
+
+public class ex15
+{
+    public static void main(String agrs[]) {
+        int[] vetorA = montarVetorA();
+        int[] vetorS = montarVetorS(vetorA);
+
+        System.out.println("\fVetor A: ");
+        for (int i = 0; i < 20; i++) {
+            System.out.println("[" + i + "]" + vetorA[i]);
+        }
+        
+        System.out.println("\nVetor S: ");
+        for (int i = 0; i < 20; i++) {
+            System.out.println("[" + i + "]" + vetorS[i]);
+        }
+    }
+
+    public static int[] montarVetorA() {
+        Scanner in = new Scanner(System.in);
+        int[] vetorA = new int[20];
+        int valoresA = 0;
+
+        System.out.println("\f");
+         
+        for (int i = 0; i < 20; i++) {
+            do {
+                System.out.println("\nDigite um valor inteiro não-negativo: ");
+                valoresA = in.nextInt();
+            } while (valoresA <= 0);
+            vetorA[i] = valoresA;
+        }
+        return vetorA;
+    }
+
+    public static int[] montarVetorS(int[] vetorA) {
+        int[] vetorS = new int [20];
+        int posicaoS = 0, somatorio = 0;
+
+        // percorre o vetor A
+        for(int i = 0; i < 20; i++) {
+            // insere na variavel os valores das posições percorridas em A
+            posicaoS = vetorA[i];
+
+            // percorre o valor da primeira posição do vetorA até a última
+            for(int x = 0; x < posicaoS; x++) {
+                // vai somar os valores de 0 até posicaoS (do 1º valor até o último)
+                somatorio = somatorio + x;
+            }
+            vetorS[i] = somatorio;
+        }
+        return vetorS;
+    }
+}
