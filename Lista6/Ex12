@@ -1,0 +1,86 @@
+/* SEMANA 14: 30/11
+
+ * 12. Um banco concederá um crédito especial aos seus clientes, variável com o saldo médio no último ano. 
+ * Faça um programa que leia o saldo médio de 30 clientes, em um vetor
+ * calcule o valor do crédito, de acordo com a tabela abaixo,armazene esses valores em outro vetor. 
+ * O final do programa exiba os dois vetores. 
+ * Implemente um método para calcular o valor do crédito e também para ler e escrever os vetores.
+
+ *      SALDO MÉDIO | CRÉDITO
+ *         0 a 500  | nenhum
+ *       500 a 1500 |  10%
+ *      1500 a 2500 |  15%
+ *      2500 a 4000 |  20%
+ *    acima de 4000 |  25%
+ */
+
+import java.util.Scanner;
+
+public class Ex12
+{
+    public static void main (String args[]) {
+        double[] saldoVetor = saldoMedio();
+        double[] creditoVetor = calcularCredito(saldoVetor);
+    
+        System.out.println("\f: ");
+        
+        System.out.println("\nSaldo dos clientes: ");
+        for (int i = 0; i < 30; i++) {
+            System.out.println("[" + i + "]" + saldoVetor[i]);
+        }
+
+        System.out.println("\nCrédito dos clientes: ");
+        for (int i = 0; i < 30; i++) {
+            System.out.println("[" + i + "]" + creditoVetor[i]);
+        }
+    }
+
+    public static double[] saldoMedio(){
+        Scanner in = new Scanner(System.in);
+        double[] saldoMedio = new double[30];
+        double saldoClientes = 0;
+
+        for(int i = 0; i < 30; i++) {
+            do {
+                System.out.println("\nDigite o seu saldo médio do ano passado: ");
+                saldoClientes = in.nextDouble();
+            } while(saldoClientes <= 0);
+            
+            saldoMedio[i] = saldoClientes;
+        }
+        return saldoMedio;
+    }
+
+    public static double[] calcularCredito(double[] saldoMedio) {
+        double[] credito = new double[30];
+        double calculo = 0;
+
+        for(int x = 0; x < 30; x++) {
+            if (saldoMedio[x] < 500) {
+                calculo = 0;
+                credito[x] = calculo;
+            }
+
+            else if (saldoMedio[x] >= 500 || saldoMedio[x] <= 1500) {
+                calculo = saldoMedio[x] * 0.1;
+                credito[x] = calculo;
+            }
+
+            else if (saldoMedio[x] > 1500 || saldoMedio[x] <= 2500) {
+                calculo = saldoMedio[x] * 0.15;
+                credito[x] = calculo;
+            }
+
+            else if (saldoMedio[x] > 2500 ||saldoMedio[x] <= 4000) {
+                calculo =  saldoMedio[x] * 0.20;
+                credito[x] = calculo;
+            }
+
+            else if (saldoMedio[x] > 4000) {
+                calculo = saldoMedio[x] * 0.25;
+                credito[x] = calculo;
+            }
+        }
+        return credito;
+    }
+}
