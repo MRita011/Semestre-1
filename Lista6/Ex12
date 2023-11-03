@@ -61,17 +61,17 @@ public class Ex12
                 credito[x] = calculo;
             }
 
-            else if (saldoMedio[x] >= 500 || saldoMedio[x] <= 1500) {
+            else if (saldoMedio[x] >= 500 && saldoMedio[x] <= 1500) {
                 calculo = saldoMedio[x] * 0.1;
                 credito[x] = calculo;
             }
 
-            else if (saldoMedio[x] > 1500 || saldoMedio[x] <= 2500) {
+            else if (saldoMedio[x] > 1500 && saldoMedio[x] <= 2500) {
                 calculo = saldoMedio[x] * 0.15;
                 credito[x] = calculo;
             }
 
-            else if (saldoMedio[x] > 2500 ||saldoMedio[x] <= 4000) {
+            else if (saldoMedio[x] > 2500 && saldoMedio[x] <= 4000) {
                 calculo =  saldoMedio[x] * 0.20;
                 credito[x] = calculo;
             }
