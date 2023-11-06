@@ -1,0 +1,18 @@
+/* 1. Dena uma classe Livro, sabendo que todo livro possui:
+ * código
+ * título
+ * ano de publicação
+ * autores (um ou mais). 
+
+ * A seguir, implemente os métodos básicos (construtor, getters, setters e toString) para esta classe.
+ * Em seguida, implemente uma Lista de livros. Para esta listar as seguintes operações devem ser construídas: 
+ * construtor (instancia a lista)
+ * cadastralivro (insere um livro na lista e não permite que dois livros tenham o mesmo código)
+ * busca livro por código, busca livro por autor, exclui livro por código
+ * toString (com todo o contéudo da lista). 
+
+ * Implemente também uma classe Aplicação com um menu de opções (com as operações da lista).
+ */
+
+import java.util.Scanner;
+
