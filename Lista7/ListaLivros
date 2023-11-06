@@ -1,0 +1,25 @@
+/* 1. Implemente uma Lista de livros. Para esta listar as seguintes operações devem ser construídas: 
+     * construtor (instancia a lista)
+     * cadastralivro (insere um livro na lista e não permite que dois livros tenham o mesmo código)
+     * busca livro por código, busca livro por autor, exclui livro por código
+     * toString (com todo o contéudo da lista). 
+
+ * Implemente também uma classe Aplicação com um menu de opções (com as operações da lista).
+ */
+
+public class ListaLivros
+{
+    private Livro[] listarLivro;
+    int proximoIndice;
+    
+    public ListaLivros() {
+       listarLivro = new Livro[5];
+       proximoIndice = 0;
+    }
+    
+    public boolean cadastraLivro(Livro a){
+        listarLivro[proximoIndice] = a;
+        proximoIndice++;
+        return true;
+    }
+}
