@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class AppForma 
+{
+    public static void main (String args[]) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("\f");
+
+        String nome, cor;
+        double lado, area;
+
+        Forma[] listaFormas = new Forma[10];
+        
+        // public Forma(String nome, String cor, double lado, double area)
+        for (int i = 0; i < 3; i ++) {
+            System.out.println("\nDigite o nome da forma: ");
+            nome = in.next();
+
+            System.out.println("\nDigite a cor da forma: ");
+            cor = in.next();
+
+            System.out.println("\nDigite o lado da forma: ");
+            lado = in.nextDouble();
+
+            System.out.println("\nDigite a área da forma: ");
+            area = in.nextDouble();
+
+            Forma f1 = new Forma(nome, cor, lado, area);
+            listaFormas[i] = f1;
+        }
+
+        for (int x = 0; x < 3; x ++) {
+            System.out.println("\nNa posição [" + x + "]:");
+            System.out.println(listaFormas[x].toString());
+            // imprime a listaFormas na posição i 10x
+        }
+    }
+}
