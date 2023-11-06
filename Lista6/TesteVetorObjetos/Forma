@@ -1,0 +1,52 @@
+public class Forma
+{
+    private String nome;
+    private String cor;
+    private double lado;
+    private double area;
+
+    public Forma(String nome, String cor, double lado, double area) {
+        //atributo(private) = paramêtro
+        this.nome = nome;
+        this.cor = cor;
+        this.lado = lado;
+        this.area = area;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public String getNome() {
+        return nome;
+    } 
+    
+     public void setCor(String cor) {
+        this.cor = cor;
+    }
+    
+    public String getCor() {
+        return cor;
+    } 
+    
+    public void setLado(double lado) {
+        this.lado = lado;
+    }
+    
+    public double getLado() {
+        return lado;
+    } 
+    
+    // Área não é um método específico, pois não sabemos qual será a forma geométrica
+     public void setArea(double area) {
+        this.area = area;
+    }
+    
+    public double getArea() {
+        return area;
+    } 
+    
+    public String toString() {
+        return "\nNome: " + nome + "\nCor:" + cor + "\nLado: " + lado + "\nArea: " + area; 
+    }
+}
