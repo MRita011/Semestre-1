@@ -1,0 +1,77 @@
+/*  Em seguida, implemente uma Lista de usuários com: 
+     * construtor (instancia a lista) 
+     * cadastra usuário (insere um usuário na lista e não permite que dois usuários tenham a mesma matricula) 
+     * busca usuário por matricula, 
+     * busca usuário por nome (usar substrings) 
+     * exclui usuário por matricula
+     * toString.
+ */
+
+public class ListaUsuarios
+{
+    private Usuario[] lista;
+    private int proximoIndice;
+
+    public ListaUsuarios(int tamanho) {
+        lista = new Usuario[tamanho];
+        proximoIndice = 0;
+    }
+
+    public boolean cadastrarUsuario(Usuario u) {
+        if (proximoIndice == 0) {
+            lista[proximoIndice] = u;
+            proximoIndice++;
+            return true;
+        }
+        
+        else {
+            for (int i = 0; i < proximoIndice; i++) {
+                if (lista[i].getMatricula() == u.getMatricula())
+                    return false;
+            }
+        }
+        
+        lista[proximoIndice] = u;
+        proximoIndice++;
+        return true;
+    }
+    
+    public Usuario buscarPelaMatricula(int matricula) {
+        for (int i = 0; i < proximoIndice; i++) {
+            if (lista[i].getMatricula() == matricula)
+                return lista[i];
+        }
+        return null; // caso não exista um usuário com essa matrícula
+    }
+    
+    public Usuario buscarPeloNome (String nome) {
+        for (int i = 0; i < proximoIndice; i++) {
+            if (lista[i].getNome().equalsIgnoreCase(nome))
+                return lista[i];
+        }
+        return null; // caso não exista um usuário com esse nome
+    }
+    
+    public boolean excluirUsuario(int matricula) {
+        if (proximoIndice == 0)
+            return false; // se a lista de usuaŕios estiver vazia, não há o que excluir
+            
+        else {
+            for (int i = 0; i < proximoIndice; i++) {
+                if (lista[i].getMatricula() == matricula)
+                    lista[i] = null; // deixa o espaço da matrícula vazio
+                    return true; // excluiu
+            }
+            return false; // não achou alguém com essa matrícula
+        }
+    }
+    
+    public String toString() {
+        String saida = "";
+        
+        for (int i = 0; i < proximoIndice; i++) {
+            saida = saida + lista[i];
+        }
+        return saida;
+    }
+}
