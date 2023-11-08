@@ -1,57 +1,65 @@
 /* 1. Defina uma classe Livro, sabendo que todo livro possui:
-     * código
-     * título
-     * ano de publicação
-     * autores (um ou mais). 
+ * código
+ * título
+ * ano de publicação
+ * autores (um ou mais). 
  */
 
 public class Livro
 {
-    private String codigo;
+    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
+    private int codigo;
     private String titulo;
     private int ano;
     private String autores;
 
-    public Livro(String codigo, String titulo, int ano, String autores) {
-        this.codigo = codigo;
+    /**
+     * Construtor para objetos da classe Livro
+     */
+    public Livro(int codigo, String titulo, int ano, String autores)
+    {
+        if (codigo>=0)
+            this.codigo = codigo;
+        else
+            this.codigo = 0;
+
         this.titulo = titulo;
+
         this.ano = ano;
         this.autores = autores;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCodigo(int codigo){
+        if (codigo>=0)
+            this.codigo = codigo;
+        else
+            this.codigo = 0;
     }
 
-    public String getCodio() {
-        return codigo;
-    }
-
-    public void setTitulo(String titulo) {
+    public void setTitulo(String titulo){
         this.titulo = titulo;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
-    
-    public void setAno(int ano) {
+    public void setAno(int ano){
         this.ano = ano;
     }
 
-    public int getAno() {
-        return ano;
+    public void setAutores(String autores){
+        this.autores= autores;
     }
 
-    public void setAutores(String autores) {
-        this.autores = autores;
+    public int getCodigo(){ return codigo;
     }
 
-    public String getAutores() {
-        return autores;
+    public String getTitulo(){ return titulo;
     }
-    
-    /*public String toString() {
-        return "\nCódigo: " + codigo + "\nTítulo: " + titulo + "\nAno: " + ano + "\nAutores: " + autores;
-    }*/
+
+    public int getAno(){ return ano;
+    }
+
+    public String getAutores(){return autores;
+    }
+
+    public String toString(){ return "\nCódigo: " + codigo +"\nTitulo: "+ titulo + "\nAno de publicação: "+ano +"\nAutores" + autores;
+    }
 }
