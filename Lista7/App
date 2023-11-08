@@ -16,3 +16,70 @@
 
 import java.util.Scanner;
 
+public class AppLivraria
+{
+    public static void main(String arg[]){
+        Scanner in = new Scanner(System.in);
+        int tamanho, opcao, codigo, ano;
+        String titulo, autores;
+        System.out.println("Informe o tamanho do acervo:");
+        tamanho = in.nextInt();
+        opcao = 0;
+        ListaLivros lista = new ListaLivros(tamanho);
+
+        while (opcao!=5){
+            menu();
+            opcao = in.nextInt();
+            switch(opcao){
+                case 1: System.out.println("Digite o código: ");
+                    codigo = in.nextInt();
+                    System.out.println("Digite o título: ");
+                    titulo = in.next();
+                    System.out.println("Digite o ano: ");
+                    ano = in.nextInt();
+                    System.out.println("Digite os autores: ");
+                    autores = in.next();
+                    Livro l = new Livro(codigo, titulo, ano, autores);
+                    if (lista.cadastraLivro(l))
+                        System.out.println("Livro cadastrado");
+                    else
+                        System.out.println("Livro cadastradoJa existe livro com este código");
+                    break;
+                case 2: System.out.println("Digite o código: ");
+                    codigo = in.nextInt(); 
+                    if (lista.excluiLivro(codigo))
+                        System.out.println("Livro excluido");
+                    else
+                        System.out.println("Acervo não possui livros ou não tem livro com este código");
+                    break;
+                case 3: System.out.println("Digite o código: ");
+                    codigo = in.nextInt(); 
+                    if (lista.buscaLivroPorCodigo(codigo)!=null)
+                        System.out.println(lista.buscaLivroPorCodigo(codigo).toString());
+                    else
+                        System.out.println("Acervo não possui livros ou não tem livro com este código");
+                    break;
+                case 4: System.out.println("Digite o nome do autor(es): ");
+                    autores = in.next(); 
+                    if (lista.buscaLivroPorAutor(autores)!=null)
+                        System.out.println(lista.buscaLivroPorAutor(autores).toString());
+                    else
+                        System.out.println("Acervo não possui livros ou não tem livro com estes autores");
+                    break;        
+                case 5: System.out.println("Saindo da livraria");
+                    break;
+                default:System.out.println("Opção inválida");
+                    break;
+            }
+        }
+        System.out.println("FIM");
+    }
+
+    public static void menu(){
+        System.out.println("1 - insere");
+        System.out.println("2 - exclui");
+        System.out.println("3 - consulta por codigo");
+        System.out.println("4 - consulta por autores");
+        System.out.println("5 - sair");        
+    }
+}
