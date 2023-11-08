@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class AppUsuario
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int matricula, tamanho, opcao = 0;
+        String nome = "";
+
+        System.out.println("\fDigite a quantidade de usuários: ");
+        tamanho = in.nextInt();
+        ListaUsuarios u = new ListaUsuarios(tamanho);
+
+        while(opcao != 6) {
+            menu();
+            opcao = in.nextInt();
+
+            switch(opcao) {
+                case 1: // cadastrar usuario
+                        System.out.println("\nDigite o nome do usuário: ");
+                        nome = in.next();
+                        
+                        System.out.println("\nDigite o número de matrícula do usuário: ");
+                        matricula = in.nextInt();
+                        Usuario u = new Usuario(nome, matricula);
+                break;
+                
+                case 2: // buscar pela matrícula
+                
+                    
+                
+                
+            }
+        }
+    }
+    
+    public static void menu() {
+        System.out.println( 
+        "\n1. Cadastrar usuário: " +
+        "\n2. Buscar usuário pela matrícula: " + 
+        "\n3. Buscar usuário pelo nome: " + 
+        "\n4. Excluir usuário: " + 
+        "\n5. Imprimir: " + 
+        "\n6. Sair. ");
+    }
+}
