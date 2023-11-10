@@ -1,0 +1,93 @@
+public class Agencia
+{
+    private String nome;
+    private Conta[] listaContas;
+    private int proximoIndice;
+
+    public Agencia(String nome, int tamanho) {
+        listaContas = new Conta[tamanho];
+        this.nome = nome;
+        proximoIndice = 0;
+    }
+
+    public boolean cadastrarConta(Conta c1) {
+        if (proximoIndice == 0) { // se o proximoIndice for 0, o vetor está vazio
+            listaContas[0] = c1; // coloca a primeira conta na posição zero
+            proximoIndice++; // incrementa o proximoIndice para não repetir o if
+            return true;
+        }
+
+        for (int i = 0; i < proximoIndice; i++) { // verifica se nova conta tem o mesmo número de outra 
+            if (listaContas[i].getNumero() == c1.getNumero())
+                return false;
+        }
+
+        listaContas[proximoIndice] = c1;
+        proximoIndice++;
+        return true;
+    }
+    
+    public Conta consultarConta(int numero) {
+        if (proximoIndice == 0)
+            return null; // retorna nulo se a lista é vazia
+        
+        for (int i = 0; i < proximoIndice; i++) {
+            if (listaContas[i].getNumero() == numero);
+                return listaContas[i]; // retorna o número da conta
+        }
+        
+        return null; // se percorrer todo o for e não achar o número, retorna nulo
+    }
+    
+    public Conta consultarPeloNome(String nome) {
+        if (proximoIndice == 0) 
+            return null;
+            
+        for (int i = 0; i < proximoIndice; i++) {
+            if (listaContas[i].getNome().equalsIgnoreCase(nome))
+                return listaContas[i];
+        }
+        return null;
+    }
+    
+    public boolean depositar(int numero, double valor) {
+        Conta auxiliar = consultarConta(numero); // cria um objeto para receber o objeto de consultarConta()
+        
+        if (auxiliar == null) // se o resultado do consultarConta() for nulo
+            return false;
+            
+        else
+            return auxiliar.depositar(valor);
+    }
+    
+    public boolean sacar(double saldo, double valor, int numero) {
+        Conta auxiliar = consultarConta(numero);
+        
+        if (auxiliar == null)
+            return false;
+            
+        else
+            return auxiliar.sacar(valor);
+    }
+    
+    public boolean transferir(int numeroOrigem, int numeroDestino, double valor) {
+        Conta origem = consultarConta(numeroOrigem);
+        Conta destino = consultarConta(numeroDestino);
+        
+        if (origem != null && destino != null) 
+            return origem.transferir(valor, destino);
+            
+        else
+            return false;
+    }
+    
+    public String toString() {
+        String saida = "\nNome da agência: " + nome;
+        
+        for (int i = 0; i < proximoIndice; i++) {
+            saida = saida + "\n[" + listaContas[i] + "]";
+        }
+        
+        return saida;
+    }
+}
