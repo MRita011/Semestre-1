@@ -1,0 +1,100 @@
+import java.util.Scanner;
+
+public class Banco
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int opcao = 0, numero = 0, auxiliar = 0;
+        double saldo = 0, valor = 0;
+        String nome = "";
+
+        System.out.println("\fDigite o nome da agência: ");
+        String nomeAg = in.nextLine();
+
+        System.out.println("\fDigite o tamanho da lista de contas: ");
+        int tamanho = in.nextInt();
+
+        // public Agencia(String nome, int tamanho)
+        Agencia ag = new Agencia(nomeAg, tamanho); 
+
+        while(opcao != 8) {
+            menu();
+            //System.out.println("\nDigite a opção desejada: ");
+            opcao = in.nextInt();
+
+            switch(opcao) {
+                case 1: 
+                    System.out.println("\nDigite o nome do proprietário: ");
+                    nome = in.next();
+
+                    System.out.println("\nDigite o número: ");
+                    numero = in.nextInt();
+
+                    System.out.println("\nDigite o saldo inicial: ");
+                    valor = in.nextDouble();
+
+                    Conta c1 = new Conta(nome, numero, valor);
+                    if(ag.cadastrarConta(c1))
+                        System.out.println("\nConta cadastrada na agência!");
+
+                    else
+                        System.out.println("\nConta não foi cadastrada.");   
+                    break;
+
+                case 2:
+                    System.out.println("\nDigite o número da conta: ");
+                    numero = in.nextInt();
+                    auxiliar = ag.consultarConta(numero);
+
+                    if (auxiliar == null)
+                        System.out.println("\nConta não encontrada.");
+
+                    else 
+                        System.out.println(auxiliar.toString());
+                    break;
+
+                case 3:
+                    System.out.println("\nDigite o nome do proprietário: ");
+                    nome = in.next();
+                    auxiliar = ag.consultarPeloNome(nome);
+
+                    if (auxiliar == null)
+                        System.out.println("\nConta não encontrada.");
+
+                    else 
+                        System.out.println(auxiliar.toString());
+                    break;
+                    
+                case 4:
+                    System.out.println("\nDigite o valor a ser depositado: ");
+                    valor = in.nextDouble();
+                    
+                    System.out.println("\nDigite o nº da conta: ");
+                    numero = in.nextInt();
+                    
+                    if (ag.depositar(valor, numero))
+                        System.out.println("\nDeposito efetuado!");
+                    
+                    else
+                        System.out.println("\nDeposito não efetuado.");
+                    break;
+                    
+                    // no transferir, chama o transferir (conta origem, destino e valor)
+                    
+            }
+        }
+    }
+
+    public static void menu() {
+        System.out.println(
+            "\n1. Cadastrar conta: " + 
+            "\n2. Consultar conta por numero: " + 
+            "\n3. Consultar conta por nome: " + 
+            "\n4. Depositar: " + 
+            "\n5. Sacar: " +
+            "\n6. Transferir: " + 
+            "\n7. Listar contas da agência: " +
+            "\n8. Sair. "
+        );
+    }
+}
