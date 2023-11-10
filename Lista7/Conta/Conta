@@ -1,0 +1,98 @@
+/* SEMANA 15: 10/11
+
+ * 7. Crie a classe Conta. Toda conta tem 
+ * número
+ * saldo. 
+
+ * Além disso, deve possui as seguintes operações: 
+ * depositar, 
+ * sacar e 
+ * transferir,
+
+ * além dos métodos básicos se forem adequados. A seguir, defina uma Agência bancária que possui uma lista de contas correntes. 
+ * Defina as operações necessárias para manipular essa lista. 
+ * Implemente ainda uma classe Aplicação com um menu de opções (com as operações da lista).
+ */
+
+public class Conta
+{
+    private String nome;
+    private int numero;
+    private double saldo;
+    private double valor;
+
+    public Conta(String nome, int numero, double saldo, double valor) {
+        this.numero = numero;
+        this.saldo = saldo;
+        this.valor = valor;
+        this.nome = nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+    
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+    
+    public Conta (int numero, String nome) {
+        if (numero > 0)
+            this.numero = numero;
+        
+        if (nome.equalsIgnoreCase(nome))
+            this.nome = nome;
+    }
+
+    public boolean sacar(double saldo, double valor) {
+        if (saldo > 0){
+            saldo = saldo - valor;
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public boolean depositar(double saldo, double valor) {
+        if (valor > 0) {
+            saldo = saldo + valor;
+            return true;
+        }
+        else
+            return false;
+    }
+    
+    public boolean transferir(double saldo, double valor, double numero) {
+        if (saldo > 0 && valor <= saldo) {
+            saldo = saldo - valor;
+            return true;
+        }
+        
+        else
+            return false;
+    }
+}
