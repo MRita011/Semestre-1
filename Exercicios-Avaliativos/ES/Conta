@@ -1,0 +1,59 @@
+/* Maria Rita Rodrigues
+ * Turma: 30
+ * 10/11
+ */
+
+// Definição da classe Conta
+public class Conta
+{
+    // Atributos privados da classe
+    private double saldo; // Saldo da conta
+    private int numeroConta; // Número da conta
+
+    // Construtor da classe, inicializa o saldo e o número da conta
+    public Conta(double s, int numero) {
+        // Verifica se o saldo é positivo, se não for, define o saldo como zero
+        if (s > 0) 
+            saldo = s;
+        else
+            saldo = 0;
+
+        // Verifica se o número da conta é positivo, se não for, define o número da conta como zero
+        if (numero > 0)
+            numeroConta = numero;
+        else 
+            numeroConta = 0;
+    }
+
+    // Método para realizar saque, deduz o valor do saldo se houver saldo suficiente
+    public void sacar(double valor) {
+        if (valor <= saldo)
+            saldo = saldo - valor;
+    }
+
+    // Método para realizar depósito, adiciona o valor ao saldo
+    public void depositar(double valor) {
+        saldo = saldo + valor;
+    }
+
+    // Método para obter o saldo atual da conta
+    public double getSaldo() {
+        return saldo;
+    }
+
+    // Método para obter o número da conta
+    public int getNumeroConta() {
+        return numeroConta;
+    }
+
+    // Método para transferir um valor para outra conta
+    public void transferir(Conta contaDestino, double valor) {
+        sacar(valor); // Realiza o saque da conta de origem
+        contaDestino.depositar(valor); // Deposita o valor na conta de destino
+    }
+
+    // Método toString para representação textual da conta
+    public String toString() {
+        return "\nConta número: " + numeroConta + "\nSaldo atual: " + saldo;
+    }
+}
