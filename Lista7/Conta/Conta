@@ -16,60 +16,43 @@
 
 public class Conta
 {
-    private String nome;
     private int numero;
     private double saldo;
-    private double valor;
+    private String proprietario;
 
-    public Conta(String nome, int numero, double saldo, double valor) {
-        this.numero = numero;
-        this.saldo = saldo;
-        this.valor = valor;
-        this.nome = nome;
-    }
+    public Conta(int numero, double saldo, String nome) {
+        if(numero > 0)
+            this.numero = numero;
+        else
+            this.numero =0;
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
-    public String getNome() {
-        return nome;
-    }
-    
-    public void setNumero(int numero) {
-        this.numero = numero;
+        if(saldo > 0)
+            this.saldo = saldo;
+        else
+            this.saldo = 0;
+            
+        proprietario = nome;
     }
 
-    public int getNumero() {
+    public void setNumero(int numero){
+        if(numero > 0)
+            this.numero = numero;
+    }
+
+    public int getNumero(){ 
         return numero;
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
-    public double getSaldo() {
+    public double getSaldo(){ 
         return saldo;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public String getProprietario(){ 
+        return proprietario;
     }
 
-    public double getValor() {
-        return valor;
-    }
-    
-    public Conta (int numero, String nome) {
-        if (numero > 0)
-            this.numero = numero;
-        
-        if (nome.equalsIgnoreCase(nome))
-            this.nome = nome;
-    }
-
-    public boolean sacar(double saldo, double valor) {
-        if (saldo > 0){
+    public boolean sacar(double valor){
+        if (saldo >= valor){
             saldo = saldo - valor;
             return true;
         }
@@ -77,22 +60,26 @@ public class Conta
             return false;
     }
 
-    public boolean depositar(double saldo, double valor) {
-        if (valor > 0) {
-            saldo = saldo + valor;
+    public boolean depositar(double valor){
+        if(valor > 0){
+            saldo = saldo +valor;
             return true;
         }
         else
             return false;
     }
-    
-    public boolean transferir(double saldo, double valor, double numero) {
-        if (saldo > 0 && valor <= saldo) {
+
+    public boolean transferir(double valor, Conta destino){
+        if(saldo >= valor){
             saldo = saldo - valor;
+            destino.depositar(valor);
             return true;
         }
-        
         else
             return false;
+    }
+
+    public String toString(){
+        return "\nNúmero da Conta: " + numero + "\nProprietario: " + proprietario + "\nSaldo: " + saldo;
     }
 }
