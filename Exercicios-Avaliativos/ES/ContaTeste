@@ -1,0 +1,75 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+// Classe de teste para a classe Conta
+public class ContaTest
+{
+    // Construtor default para a classe de teste ContaTest
+    public ContaTest()
+    {}
+
+    /* Define a 'fixture' do teste.
+     * Chamado antes de cada método de caso de teste.
+    */
+    @BeforeEach
+    public void setUp()
+    {}
+
+    /* Desfaz a 'fixture' do teste.
+     * Chamado após cada método de teste de caso.
+    */
+    @AfterEach
+    public void tearDown()
+    {}
+    
+    // Teste para o construtor da classe Conta
+    @Test
+    public void testarConstrutor() {
+        Conta c1 = new Conta(2000, 12345);
+    }
+    
+    // Teste para o método de saque da classe Conta
+    @Test
+    public void testarSaque() {
+        // Cria uma conta com saldo inicial de 2000
+        Conta c1 = new Conta(2000, 12345);
+        
+        // Realiza um saque de 250 unidades
+        c1.sacar(250);
+        
+        // Verifica se o saldo após o saque é igual a 1750
+        assertEquals(1750, c1.getSaldo());
+    }
+    
+    // Teste para o método de depósito da classe Conta
+    @Test
+    public void testarDeposito() {
+        // Cria uma conta com saldo inicial de 2000
+        Conta c1 = new Conta(2000, 12345);
+        
+        // Realiza um depósito de 250 unidades
+        c1.depositar(250);
+        
+        // Verifica se o saldo após o depósito é igual a 2250, com uma margem de erro de 0.1
+        assertEquals(2250, c1.getSaldo(), 0.1);
+    }
+    
+    // Teste para o método de transferência entre contas da classe Conta
+    @Test 
+    public void testarTransferencia() {
+        // Cria duas contas, uma com saldo inicial de 2000 e outra com saldo inicial de 3000
+        Conta c1 = new Conta(2000, 1);
+        Conta c2 = new Conta(3000, 2);
+        
+        // Realiza uma transferência de 1000 unidades da conta c1 para c2
+        c1.transferir(c2, 1000);
+        
+        // Verifica se o saldo da conta c1 após a transferência é igual a 1000, com uma margem de erro de 0.1
+        assertEquals(1000, c1.getSaldo(), 0.1);
+        
+        // Verifica se o saldo da conta c2 após a transferência é igual a 4000, com uma margem de erro de 0.1
+        assertEquals(4000, c2.getSaldo(), 0.1);
+    }
+}
