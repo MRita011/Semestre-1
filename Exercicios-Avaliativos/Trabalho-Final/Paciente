@@ -128,5 +128,9 @@ public class Paciente
         else 
             return 0; 
     }
+    
+    public String toString() {
+        return "\nCódigo: " + codigo + "\nNome: " + nome + "\nPeso: " + peso + "\nIdade: " + idade;
+    }
 }
 
