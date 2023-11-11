@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class AppBanco
 {
     public static void main(String args[]){
+        System.out.print("\f");
         Scanner in = new Scanner(System.in);
         int numero, tamanho, opcao = 0;
         String proprietario, nome;
@@ -10,10 +11,10 @@ public class AppBanco
 
         Conta auxiliar;
 
-        System.out.print("Digite o nome da agência:");
+        System.out.print("\nDigite o nome da agência:");
         nome = in.nextLine();
 
-        System.out.print("Digite o tamanho da lista de contas:");
+        System.out.print("\nDigite o tamanho da lista de contas:");
         tamanho = in.nextInt();
 
         Agencia ag = new Agencia(nome, tamanho);       
@@ -96,6 +97,6 @@ public class AppBanco
             "\n5. Sacar $ numa conta: " +
             "\n6. Transferir $ entre contas: " +
             "\n7. Listar contas da agência: " + 
-            "\n8. Sair.");
+            "\n8. Sair.\n");
     }
 }
