@@ -1,76 +1,69 @@
-/* SEMANA 15: 10/11
-
- * 7. Crie a classe Conta. Toda conta tem 
- * número
- * saldo. 
-
- * Além disso, deve possui as seguintes operações: 
- * depositar, 
- * sacar e 
- * transferir,
-
- * além dos métodos básicos se forem adequados. A seguir, defina uma Agência bancária que possui uma lista de contas correntes. 
- * Defina as operações necessárias para manipular essa lista. 
- * Implemente ainda uma classe Aplicação com um menu de opções (com as operações da lista).
- */
-
-public class Conta
-{
+public class Conta{
     private int numero;
     private double saldo;
     private String proprietario;
-
-    public Conta(int numero, double saldo, String nome) {
-        if(numero > 0)
+    private int proximoIndice;
+    
+    public Conta(int numero, double saldo, String nome, int proximoIndice){
+        if(numero>0)
             this.numero = numero;
         else
             this.numero =0;
-
-        if(saldo > 0)
+            
+        if(saldo>0)
             this.saldo = saldo;
         else
             this.saldo = 0;
-            
         proprietario = nome;
+        
+        this.proximoIndice = 0;
     }
-
+    
     public void setNumero(int numero){
-        if(numero > 0)
+        if(numero>0)
             this.numero = numero;
     }
-
+    
     public int getNumero(){ 
         return numero;
     }
-
+    
     public double getSaldo(){ 
         return saldo;
     }
-
+    
     public String getProprietario(){ 
         return proprietario;
     }
-
+    
+    public void setProximoIndice(int proximoIndice) {
+        this.proximoIndice = proximoIndice;
+    }
+    
+    public int getProximoIndice() {
+        return proximoIndice;
+    }
+    
     public boolean sacar(double valor){
-        if (saldo >= valor){
+        if (saldo>=valor){
             saldo = saldo - valor;
             return true;
         }
         else
             return false;
     }
-
+    
     public boolean depositar(double valor){
-        if(valor > 0){
+        if(valor>0){
             saldo = saldo +valor;
             return true;
         }
         else
             return false;
     }
-
+    
     public boolean transferir(double valor, Conta destino){
-        if(saldo >= valor){
+        if(saldo>=valor){
             saldo = saldo - valor;
             destino.depositar(valor);
             return true;
@@ -78,8 +71,8 @@ public class Conta
         else
             return false;
     }
-
+    
     public String toString(){
-        return "\nNúmero da Conta: " + numero + "\nProprietario: " + proprietario + "\nSaldo: " + saldo;
+        return "\nNúmero da Conta: "+numero + "\nProprietario: " + proprietario+"\nSaldo: "+saldo;
     }
 }
