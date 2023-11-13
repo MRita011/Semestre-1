@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class MatrizTeste
+{
+   public static void main(String agrs[]) {
+       Scanner in = new Scanner(System.in);
+       //      x y
+       double [][] notas = new double[28][7];
+       double nota;
+       
+       for (int x = 0; x < 28; x++) { 
+           // percorrendo a linha
+           for(int y = 0; y < 7; y++) { 
+               // percorrendo as colunas
+               System.out.println("\nDigite uma nota: ");
+               nota = in.nextDouble();
+               notas[x][y] = nota;
+            }
+        }
+    }
+}
