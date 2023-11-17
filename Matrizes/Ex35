@@ -1,0 +1,59 @@
+/* 35. Faça um programa que leia um matriz A(6,6) 
+ * e escreve a soma dos elementos da sua diagonal principal 
+ * e da sua diagonal secundária. 
+ * A leitura e as somas devem ser feitas por métodos.
+ */
+
+import java.util.Scanner;
+
+public class Ex35 
+{
+    public static void main(String args[]) {
+        int[][] matriz = lerMatriz();
+        
+        System.out.println("\nA soma da diagonal principal da matriz é: "+ somarDiagonalPrincipal(matriz));
+        System.out.println("\nA soma da diagonal secundária da matriz é: "+ somarDiagonalSecundaria(matriz));
+    }
+
+    public static int[][] lerMatriz() { 
+        // vetor que monta a matriz
+        Scanner in = new Scanner(System.in);
+        int[][] matrizA = new int[6][6];
+        int valor = 0;
+
+        for (int x = 0; x < 6; x++) {
+            for (int y = 0; y < 6; y++) {
+                System.out.println("\nDigite um valor para o eixo [" + x + ", " + y + "]");
+                valor = in.nextInt();
+                matrizA[x][y] = valor;
+            }
+        }
+        return matrizA;
+    }
+
+    public static int somarDiagonalPrincipal (int[][] matrizA) {
+        int somaDP = 0;
+
+        for (int x = 0; x < 6; x++) {
+            for (int y = 0; y < 6; y++) {
+                if (x == y) {
+                    somaDP = somaDP + matrizA[x][y];
+                }
+            }
+        }
+        return somaDP;
+    }
+
+    public static int somarDiagonalSecundaria(int[][] matrizA) {
+        int somaDS = 0;
+
+        for (int x = 0; x < 6; x++) {
+            for (int y = 0; y < 6; y++) {
+                if (x+y == 5) {
+                    somaDS = somaDS + matrizA[x][y];
+                }
+            }
+        }
+        return somaDS;
+    }
+}
