@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Ex34
+{
+    public static void main(String args[]) {
+        int[][] matriz = leMatriz();
+        System.out.println("\nA soma dos conteúdos da matriz é: "+ somaMatriz(matriz));
+    }
+
+    public static int[][] leMatriz() {
+        Scanner in = new Scanner(System.in);
+
+        int valor = 0;
+        int[][] matrizA = new int[5][5];
+
+        for(int x = 0; x < 5; x++) { // eixo vertical
+            for(int y = 0; y < 5; y++) { // eixo horizontal
+                System.out.println("\nDigite um valor para o eixo (" + x + ", " + y +"):");
+                valor = in.nextInt();
+                matrizA[x][y] = valor; // preenche a matriz horizontalmente e passa para a próxima linha
+            }
+        }
+        return matrizA;
+    }
+
+    public static int somaMatriz(int[][] matrizA) {
+        int soma = 0;
+
+        for(int x = 0; x < 5; x++) { // se quisesse somar só a diagonal principal: if(x == y)
+            for (int y = 0; y < 5; y++) {
+                soma = soma + matrizA[x][y];
+            }
+        }
+        return soma;
+    }
+}
