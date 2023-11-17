@@ -1,0 +1,50 @@
+/* 38. Crie uma matriz para armazenar as médias de G1 de 20 alunos de 5 turmas de Fundamentos de programação. 
+ * Todos os valores lidos devem pertencer ao intervalo [0;10]. 
+
+ * A seguir,
+ * a) crie e escreva um vetor contendo a média de cada turma.
+ * b) crie e escreva um vetor com as posições dos melhores alunos de cada turma.
+
+ * A leitura e a escrita da matriz e o prenchimento e escrita dos vetores devem ser feitos por métodos.
+ */
+
+import java.util.Scanner;
+
+public class Ex38
+{
+    public static void main(String args[]) {
+
+    }
+
+    public static double[][] MatrizTurmas() {
+        Scanner in = new Scanner(System.in);
+        double[][] matrizG1 = new double[5][20];
+        double valor = 0;
+
+        for (int x = 0; x < 5; x++) {
+            for (int y = 0; y < 20; y++) {
+                do {
+                    System.out.println("\nDigite a nota G1 do aluno(a): ");
+                    valor = in.nextDouble();
+                } while (valor < 0 && valor > 10);
+                
+                matrizG1[x][y] = valor;
+            }
+        }
+
+        return matrizG1;
+    }
+
+    public static double[] vetorMedia(double[][] matrizG1) {
+        // crie e escreva um vetor contendo a média de cada turma.
+        
+        double[] mediaTurmas = new double[5];
+        
+        for (int x = 0; x < 5; x++) {
+            for (int y = 0; y < 20; y++) {
+                if ()
+            }
+        }
+    }
+}
+}
