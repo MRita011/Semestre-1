@@ -1,4 +1,4 @@
-/* 11. Implemente a classe Paciente: os objetos dessa classe representam os pacientes de um médico endocrinologista. 
+/* Implemente a classe Paciente: os objetos dessa classe representam os pacientes de um médico endocrinologista. 
  * De cada paciente, o médico mantém os seguintes dados: 
  * código, 
  * nome, 
@@ -7,25 +7,21 @@
  * altura
  * idade. 
 
- * O nome do paciente não pode ser nulo
- * o sexo deve ser F ou M. 
+ * O nome do paciente não pode ser nulo e o sexo deve ser F ou M. 
  * Tanto o nome quanto o sexo devem ser definidos logo que o objeto é instanciado. 
- * O peso deve pertencer ao intervalo (0; 150kg]; 
+ * O peso deve pertencer ao intervalo (0; 150kg]
  * a altura deve respeitar o intervalo (0; 2,5m]
- * a idade [0; 120]. 
+ * a idade, [0; 120]. 
 
  * Além dos métodos construtor, modificadores, de acesso e toString, implemente: 
- * um método que calcula o índice de massa corporal do paciente, IMC = peso/(altura²); 
- * um método que calcula o peso ideal do paciente de acordo com o seu sexo. 
- * Para homens, usar 72.7 × altura − 58
- * para mulheres, 62.1 × altura − 44.7. 
+ * um método que calcula o índice de massa corporal do paciente (IMC), onde IMC = peso / altura2 ; 
+ * um método que calcula o peso ideal do paciente de acordo com o seu sexo. Para homens, usar 72.7 × altura − 58 e para mulheres, 62.1 × altura − 44.7.
 
- * A seguir, implemente uma Lista de Pacientes. Defina as operações necessárias para manipular essa lista. 
  * Implemente ainda uma classe Aplicação com um menu de opções (com as operações da lista).
  */
 
-public class Paciente 
-{
+public class Paciente
+{    
     private int codigo;
     private String nome;
     private char sexo;
@@ -34,31 +30,17 @@ public class Paciente
     private int idade;
 
     public Paciente(int codigo, String nome, char sexo, double peso, double altura, int idade) {
-        this.nome = nome;
-        this.sexo = sexo;
-        
         if (codigo >= 0)
             this.codigo = codigo;
-        
+
         else
             this.codigo = 0;
 
-        if (peso > 0 && peso <= 150)
-            this.peso = peso;
-        else
-            this.peso = 0; // fica vazio
-
-        if (altura > 0 && altura <= 250/100)
-            this.altura = altura;
-
-        else
-            this.altura = 0; // fica vazio
-
-        if (idade >= 0 && idade <= 120)
-            this.idade = idade;
-
-        else
-            this.idade = 0;
+        this.nome = nome;
+        this.sexo = sexo;
+        this.peso = peso;
+        this.altura = altura;
+        this.idade = idade;
     }
 
     public void setCodigo(int codigo) {
@@ -67,14 +49,6 @@ public class Paciente
 
     public int getCodigo() {
         return codigo;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public int getIdade() {
-        return idade;
     }
 
     public void setNome(String nome) {
@@ -86,7 +60,7 @@ public class Paciente
     }
 
     public void setSexo(char sexo) {
-        this.sexo = sexo;    
+        this.sexo = sexo;
     }
 
     public char getSexo() {
@@ -109,28 +83,30 @@ public class Paciente
         return altura;
     }
 
-    // --------- MÉTODOS ESPECÍFICOS --------- //
-
-    public double calcularICM(double altura, double peso) {
-        // um método que calcula o índice de massa corporal do paciente, IMC = peso/(altura²); 
-        double ICM = peso/Math.pow(altura,2);
-        return ICM;
+    public void setIdade(int idade) {
+        this.idade = idade;
     }
 
-    public double calcularPesoIdeal(double altura, double peso, char sexo) {
-        // Calcula o peso ideal do paciente de acordo com o seu sexo. Para homens, usar 72.7 × altura − 58, para mulheres, 62.1 × altura − 44.7. 
-        if (sexo == 'M') 
-            return 72.7 * altura - 58;
+    public int getIdade() {
+        return idade;
+    }
 
-        else if (sexo == 'F') 
-            return 62.1 * altura - 44.7;
+    // ------- MÉTODOS ESPECÍFICOS ------- //
 
-        else 
-            return 0; 
+    public double calcularIMC() {
+        return peso / (altura * altura);
     }
     
+    public double calcularPesoIdeal() {
+        if (sexo == 'M') // Fórmula para homens
+            return 72.7 * altura - 58;
+            
+        else 
+            return 62.1 * altura - 44.7; // Fórmula para mulheres
+    }
+
     public String toString() {
-        return "\nCódigo: " + codigo + "\nNome: " + nome + "\nPeso: " + peso + "\nIdade: " + idade;
+        return "\nCódigo: " + codigo + "\nNome: "  + nome + "\nSexo: " + sexo + "\nPeso: " + peso + 
+               "\nAltura: " + altura + "\nIdade: " + idade;
     }
 }
-
