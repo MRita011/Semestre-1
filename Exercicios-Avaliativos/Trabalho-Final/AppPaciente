@@ -1,0 +1,164 @@
+/* Trabalho Final - Fundamentos de Programação
+ * Nome: Maria Rita Rodrigues
+ * Turma: 30
+ */
+
+import java.util.Scanner;
+
+public class AppPaciente
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        // int codigo, String nome, char sexo, double peso, double altura, int idade
+        double peso, novoPeso, altura, novaAltura;
+        int codigo, idade, tamanho, opcao = 0;
+        char sexo, novoSexo;
+        String nome;
+
+        System.out.println("\fDigite o tamanho da lista de pacientes: ");
+        tamanho = in.nextInt();
+        ListarPacientes lista = new ListarPacientes(tamanho);
+
+        while (opcao != 10) {
+            menu();
+            opcao = in.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    System.out.println("\nDigite o código do paciente: ");
+                    codigo = in.nextInt();
+
+                    System.out.println("\nDigite o nome do paciente: ");
+                    nome = in.nextLine();
+                    nome = in.nextLine();
+
+                    System.out.println("\nDigite o sexo do paciente [F/M]: ");
+                    sexo = in.next().charAt(0);
+
+                    System.out.println("\nDigite o peso do paciente: ");
+                    peso = in.nextDouble();
+
+                    System.out.println("\nDigite a altura do paciente: ");
+                    altura = in.nextDouble();
+
+                    System.out.println("\nDigite a idade do paciente: ");
+                    idade = in.nextInt();
+
+                    Paciente p = new Paciente(codigo, nome, sexo, peso, altura, idade);
+                    break;
+
+                case 2:
+                    System.out.println("\nDigite o nome do paciente: ");
+                    nome = in.next();
+
+                    if(lista.consultarPorNome(nome))
+                        System.out.println(lista.consultarPorNome(nome));
+
+                    else
+                        System.out.println("\nNão há pacientes com este nome na lista.");
+                    break;
+
+                case 3:
+                    System.out.println("\nDigite o código do paciente: ");
+                    codigo = in.nextInt();
+
+                    if (lista.consultarPeloCodigo(codigo) != null)
+                        System.out.println(lista.consultarPeloCodigo(codigo).toString());
+
+                    else
+                        System.out.println("\nNão há pacientes com este código na lista.");
+                    break;
+
+                case 4:
+                    System.out.println("\nDigite a idade limite: ");
+                    int idadeLimite = in.nextInt();
+
+                    if (lista.listarPacientesIdadeAcima(idadeLimite) != null)
+                        System.out.println(lista.listarPacientesIdadeAcima(idadeLimite).toString());
+
+                    else
+                        System.out.println("\nNenhum paciente na lista tem acima da idade " + idadeLimite + ".");
+                    break;
+
+                case 5:
+                    System.out.println(lista.listarTodosPacientes());
+                    break;
+
+                case 6:
+                    System.out.println("\nDigite o código do paciente: ");
+                    codigo = in.nextInt();
+
+                    System.out.println("\nDigite o novo peso do paciente: ");
+                    peso = in.nextDouble();
+
+                    if (lista.alterarPeso(peso, codigo)) 
+                        System.out.println("\nO peso do paciente foi alterado com sucesso!");
+
+                    else
+                        System.out.println("\nPeso não alterado.");
+                    break;
+
+                case 7:
+                    System.out.println("\nDigite o código do paciente: ");
+                    codigo = in.nextInt();
+
+                    System.out.println("\nDigite a nova altura do paciente: ");
+                    altura = in.nextDouble();
+
+                    if (lista.alterarAltura(altura, codigo))
+                        System.out.println("\nO peso do paciente foi alterado com sucesso!");
+
+                    else
+                        System.out.println("\nAltura não alterado.");
+                    break;
+
+                case 8:
+                    System.out.println("\nDigite o código do paciente: ");
+                    codigo = in.nextInt();
+
+                    System.out.println("\nDigite o novo sexo do paciente [F/M]: ");
+                    sexo = in.next().charAt(0);
+
+                    if (lista.alterarSexo(sexo, codigo))
+                        System.out.println("\nO sexo do paciente foi alterado com sucesso!");
+
+                    else
+                        System.out.println("\nSexo não alterado.");
+                    break;
+
+                case 9:
+                    System.out.println("\nDigite o código do paciente: ");
+                    codigo = in.nextInt();
+
+                    if (lista.mostrarIMC(codigo))
+                        System.out.println(lista.mostrarIMC(codigo));
+
+                    else
+                        System.out.println("\nIMC não encontrado.");
+                    break;
+
+                case 10: 
+                    System.out.println("Saindo...");
+                    break;
+                    
+                default:
+                    System.out.println("Opção inválida");
+                    break;
+            }
+        }
+    }
+
+    public static void menu() {
+        System.out.println( 
+            "\n1. Cadastrar paciente: " +
+            "\n2. Consultar paciente pelo nome: " + 
+            "\n3. Consultar paciente pelo código: " + 
+            "\n4. Listar pacientes acima de uma determinada idade: " + 
+            "\n5. Listar todos pacientes: " + 
+            "\n6. Alterar o peso de um paciente pelo código: " + 
+            "\n7. Alterar a altura de um paciente pelo código: " + 
+            "\n8. Alterar o sexo de um paciente: " + 
+            "\n9. Mostrar o ICM de um paciente: " + 
+            "\n10. Sair. ");
+    }
+}
