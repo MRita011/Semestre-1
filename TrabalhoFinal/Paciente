@@ -30,12 +30,41 @@ public class Paciente
     private int idade;
 
     public Paciente(int codigo, String nome, char sexo, double peso, double altura, int idade) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.sexo = sexo;
-        this.peso = peso;
-        this.altura = altura;
-        this.idade = idade;
+        if (codigo >= 0)
+            this.codigo = codigo;
+
+        else 
+            this.codigo = 0;
+
+        if (nome != null && !nome.isEmpty()) 
+            this.nome = nome;
+
+        else 
+            this.nome = "";
+            
+         if (sexo == 'F' || sexo == 'f' || sexo == 'M' || sexo == 'm') 
+            this.sexo = sexo;
+
+        else 
+            this.sexo = ' ';
+       
+         if (peso > 0 && peso <= 150)
+            this.peso = peso;
+
+        else
+            this.peso = 0.0;
+       
+        if (altura > 0 && altura <= 2.5) 
+            this.altura = altura;
+
+        else
+            this.altura = 0.0;
+            
+         if (idade >= 0 && idade <= 120)
+            this.idade = idade;
+
+        else
+            this.idade = 0;
     }
 
     public void setCodigo(int codigo) {
@@ -53,7 +82,7 @@ public class Paciente
     public void setNome(String nome) {
         if (nome != null && !nome.isEmpty()) 
             this.nome = nome;
-            
+
         else 
             this.nome = "";
     }
@@ -63,9 +92,9 @@ public class Paciente
     }
 
     public void setSexo(char sexo) {
-        if (sexo == 'F' || sexo == 'M') 
+        if (sexo == 'F' || sexo == 'f' || sexo == 'M' || sexo == 'm') 
             this.sexo = sexo;
-            
+
         else 
             this.sexo = ' ';
     }
@@ -77,7 +106,7 @@ public class Paciente
     public void setPeso(double peso) {
         if (peso > 0 && peso <= 150)
             this.peso = peso;
-            
+
         else
             this.peso = 0.0;
     }
@@ -89,7 +118,7 @@ public class Paciente
     public void setAltura(double altura) {
         if (altura > 0 && altura <= 2.5) 
             this.altura = altura;
-            
+
         else
             this.altura = 0.0;
     }
@@ -101,7 +130,7 @@ public class Paciente
     public void setIdade(int idade) {
         if (idade >= 0 && idade <= 120)
             this.idade = idade;
-            
+
         else
             this.idade = 0;
     }
@@ -111,21 +140,21 @@ public class Paciente
     }
 
     // ------- MÉTODOS ESPECÍFICOS ------- //
-    
-     public double calcularIMC() {
+
+    public double calcularIMC() {
         return peso / (altura * altura);
     }
 
     public double calcularPesoIdeal() {
         if (sexo == 'M')
             return 72.7 * altura - 58;
-            
+
         else
             return 62.1 * altura - 44.7;
     }
 
     public String toString() {
-        return "\nCódigo: " + getCodigo() + "\nNome: "   + getNome()   + "\nSexo: "  + getSexo() +
-               "\nPeso: "   + getPeso()   + "\nAltura: " + getAltura() + "\nIdade: " + getIdade();
+        return "\n1.Código: " + getCodigo() + "\n2.Nome: "   + getNome()   + "\n3.Sexo: "  + getSexo() +
+               "\n4.Peso: "   + getPeso()   + "\n5.Altura: " + getAltura() + "\n6.Idade: " + getIdade();
     }
 }
