@@ -53,21 +53,21 @@ public class AppPaciente
                     break;
 
                 case 2: // Consultar paciente pelo nome
-                    System.out.println("\nDigite o nome do paciente: ");
+                    System.out.println("\fDigite o nome do paciente: ");
                     in.nextLine(); // Bug do java
                     nome = in.nextLine();
 
                     Paciente auxiliar = lista.consultarPorNome(nome); // consulta a lista de pacientes pelo nome
 
                     if (auxiliar == null) // verifica se esse paciente está na lista
-                        System.out.println("Não há pacientes com o nome: " + nome);
+                        System.out.println("\nNão há pacientes com o nome: " + nome);
 
                     else
                         System.out.println(auxiliar.toString()); // imprime as informações do paciente
                     break;
 
                 case 3:
-                    System.out.println("\nDigite o código do paciente: ");
+                    System.out.println("\fDigite o código do paciente: ");
                     codigo = in.nextInt();
 
                     if (lista.consultarPeloCodigo(codigo) != null)
@@ -78,7 +78,7 @@ public class AppPaciente
                     break;
 
                 case 4:
-                    System.out.println("\nDigite a idade limite: ");
+                    System.out.println("\fDigite a idade limite: ");
                     int idadeLimite = in.nextInt();
 
                     int[] pacientesIdadeAcima = lista.listarPacientesIdadeAcima(idadeLimite);
@@ -108,7 +108,7 @@ public class AppPaciente
                     break;
 
                 case 6:
-                    System.out.println("\nDigite o código do paciente: ");
+                    System.out.println("\fDigite o código do paciente: ");
                     codigo = in.nextInt();
 
                     System.out.println("\nDigite o novo peso do paciente: ");
@@ -122,7 +122,7 @@ public class AppPaciente
                     break;
 
                 case 7:
-                    System.out.println("\nDigite o código do paciente: ");
+                    System.out.println("\fDigite o código do paciente: ");
                     codigo = in.nextInt();
 
                     System.out.println("\nDigite a nova altura do paciente: ");
@@ -136,7 +136,7 @@ public class AppPaciente
                     break;
 
                 case 8:
-                    System.out.println("\nDigite o código do paciente: ");
+                    System.out.println("\fDigite o código do paciente: ");
                     codigo = in.nextInt();
 
                     System.out.println("\nDigite o novo sexo do paciente [F/M]: ");
@@ -149,7 +149,7 @@ public class AppPaciente
                     break;
 
                 case 9:
-                    System.out.println("\nDigite o código do paciente: ");
+                    System.out.println("\fDigite o código do paciente: ");
                     codigo = in.nextInt();
 
                     Paciente paciente = lista.consultarPeloCodigo(codigo);
