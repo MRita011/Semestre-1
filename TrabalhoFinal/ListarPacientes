@@ -14,7 +14,7 @@ public class ListarPacientes
 {
     private Paciente[] lista;
     private int proximoIndice;
-
+    
     public ListarPacientes(int tamanho) {
         lista = new Paciente[tamanho];
         proximoIndice = 0;
