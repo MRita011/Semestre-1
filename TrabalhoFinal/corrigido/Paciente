@@ -1,0 +1,160 @@
+/* Implemente a classe Paciente: os objetos dessa classe representam os pacientes de um médico endocrinologista. 
+ * De cada paciente, o médico mantém os seguintes dados: 
+ * código, 
+ * nome, 
+ * sexo, 
+ * peso, 
+ * altura
+ * idade. 
+
+ * O nome do paciente não pode ser nulo e o sexo deve ser F ou M. 
+ * Tanto o nome quanto o sexo devem ser definidos logo que o objeto é instanciado. 
+ * O peso deve pertencer ao intervalo (0; 150kg]
+ * a altura deve respeitar o intervalo (0; 2,5m]
+ * a idade, [0; 120]. 
+
+ * Além dos métodos construtor, modificadores, de acesso e toString, implemente: 
+ * um método que calcula o índice de massa corporal do paciente (IMC), onde IMC = peso / altura2 ; 
+ * um método que calcula o peso ideal do paciente de acordo com o seu sexo. Para homens, usar 72.7 × altura − 58 e para mulheres, 62.1 × altura − 44.7.
+
+ * Implemente ainda uma classe Aplicação com um menu de opções (com as operações da lista).
+ */
+
+public class Paciente
+{    
+    private int codigo;
+    private String nome;
+    private char sexo;
+    private double peso;
+    private double altura;
+    private int idade;
+
+    public Paciente(int codigo, String nome, char sexo, double peso, double altura, int idade) {
+        if (codigo >= 0)
+            this.codigo = codigo;
+
+        else 
+            this.codigo = 0;
+
+        if (nome != null && !nome.isEmpty()) 
+            this.nome = nome;
+
+        else 
+            this.nome = "";
+            
+         if (sexo == 'F' || sexo == 'f' || sexo == 'M' || sexo == 'm') 
+            this.sexo = sexo;
+
+        else 
+            this.sexo = ' ';
+       
+         if (peso > 0 && peso <= 150)
+            this.peso = peso;
+
+        else
+            this.peso = 0.0;
+       
+        if (altura > 0 && altura <= 2.5) 
+            this.altura = altura;
+
+        else
+            this.altura = 0.0;
+            
+         if (idade >= 0 && idade <= 120)
+            this.idade = idade;
+
+        else
+            this.idade = 0;
+    }
+
+    public void setCodigo(int codigo) {
+        if (codigo >= 0)
+            this.codigo = codigo;
+
+        else 
+            this.codigo = 0;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setNome(String nome) {
+        if (nome != null && !nome.isEmpty()) 
+            this.nome = nome;
+
+        else 
+            this.nome = "";
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setSexo(char sexo) {
+        if (sexo == 'F' || sexo == 'f' || sexo == 'M' || sexo == 'm') 
+            this.sexo = sexo;
+
+        else 
+            this.sexo = ' ';
+    }
+
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setPeso(double peso) {
+        if (peso > 0 && peso <= 150)
+            this.peso = peso;
+
+        else
+            this.peso = 0.0;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setAltura(double altura) {
+        if (altura > 0 && altura <= 2.5) 
+            this.altura = altura;
+
+        else
+            this.altura = 0.0;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setIdade(int idade) {
+        if (idade >= 0 && idade <= 120)
+            this.idade = idade;
+
+        else
+            this.idade = 0;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    // ------- MÉTODOS ESPECÍFICOS ------- //
+
+    public double calcularIMC() {
+        return peso / (altura * altura);
+    }
+
+    public double calcularPesoIdeal() {
+        if (sexo == 'M')
+            return 72.7 * altura - 58;
+
+        else
+            return 62.1 * altura - 44.7;
+    }
+
+    public String toString() {
+        return "\n1.Código: " + getCodigo() + "\n2.Nome: "   + getNome()   + "\n3.Sexo: "  + getSexo() +
+               "\n4.Peso: "   + getPeso()   + "\n5.Altura: " + getAltura() + "\n6.Idade: " + getIdade();
+    }
+}
