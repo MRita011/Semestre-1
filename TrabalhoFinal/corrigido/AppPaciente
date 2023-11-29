@@ -1,0 +1,187 @@
+/* Trabalho Final - Fundamentos de Programação
+ * Nome: Maria Rita Rodrigues
+ * Turma: 30
+ */
+
+import java.util.Scanner;
+
+public class AppPaciente 
+{
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int codigo, idade, tamanho, opcao = 0;
+        char sexo;
+        double peso, altura;
+        String nome;
+
+        System.out.println("\fDigite o tamanho da lista de pacientes: ");
+        tamanho = in.nextInt();
+
+        ListarPacientes lista = new ListarPacientes(tamanho);
+
+        while (opcao != 10) {
+            menu();
+            opcao = in.nextInt();
+
+            switch (opcao) {
+                case 1:// Cadastrar paciente
+                    System.out.println("\nDigite o código do paciente: ");
+                    codigo = in.nextInt();
+
+                    System.out.println("\nDigite o nome do paciente: ");
+                    in.nextLine(); // Bug do java
+                    nome = in.nextLine();
+
+                    System.out.println("\nDigite o sexo do paciente [F/M]: ");
+                    sexo = in.next().charAt(0);
+
+                    System.out.println("\nDigite o peso do paciente: ");
+                    peso = in.nextDouble();
+
+                    System.out.println("\nDigite a altura do paciente: ");
+                    altura = in.nextDouble();
+
+                    System.out.println("\nDigite a idade do paciente: ");
+                    idade = in.nextInt();
+
+                    Paciente p = new Paciente(codigo, nome, sexo, peso, altura, idade); // cria o objeto Paciente
+                    if (lista.cadastrarPaciente(p)) // adiciona o objeto ao vetor de objetos
+                        System.out.println("\nPaciente cadastrado com sucesso!");
+
+                    else
+                        System.out.println("\nErro ao cadastrar paciente. Paciente com mesmo código e nome já existe na lista.");
+                    break;
+
+                case 2: // Consultar paciente pelo nome
+                    System.out.println("\fDigite o nome do paciente: ");
+                    in.nextLine(); // Bug do java
+                    nome = in.nextLine();
+
+                    Paciente auxiliar = lista.consultarPorNome(nome); // consulta a lista de pacientes pelo nome
+
+                    if (auxiliar == null) // verifica se esse paciente está na lista
+                        System.out.println("\nNão há pacientes com o nome: " + nome);
+
+                    else
+                        System.out.println(auxiliar.toString()); // imprime as informações do paciente
+                    break;
+
+                case 3:
+                    System.out.println("\fDigite o código do paciente: ");
+                    codigo = in.nextInt();
+
+                    if (lista.consultarPeloCodigo(codigo) != null)
+                        System.out.println(lista.consultarPeloCodigo(codigo).toString());
+
+                    else
+                        System.out.println("\nNão há pacientes com este código na lista.");
+                    break;
+
+                case 4:
+                    System.out.println("\fDigite a idade limite: ");
+                    int idadeLimite = in.nextInt();
+
+                    Paciente[] pacientesIdadeAcima = lista.listarPacientesIdadeAcima(idadeLimite);
+
+                    if (pacientesIdadeAcima.length > 0) {
+                        for (int i = 0; i < pacientesIdadeAcima.length; i++) {
+                            //int codigoPaciente = pacientesIdadeAcima[i];
+                            //Paciente paciente = lista.consultarPeloCodigo(codigoPaciente);
+                            System.out.println(pacientesIdadeAcima[i].toString());
+                        }
+                    }
+
+                    else 
+                        System.out.println("\nNenhum paciente na lista tem acima da idade " + idadeLimite + ".");
+                    break;
+
+                case 5:
+                    Paciente[] pacientes = lista.listarTodosPacientes();
+
+                    if (pacientes.length > 0) {
+                        for (int i = 0; i < pacientes.length; i++) {
+                            System.out.println("\n[PACIENTE " + i + "]: " + pacientes[i].toString());
+                        }
+                    }
+                    else 
+                        System.out.println("\nNenhum paciente na lista.");
+                    break;
+
+                case 6:
+                    System.out.println("\fDigite o código do paciente: ");
+                    codigo = in.nextInt();
+
+                    System.out.println("\nDigite o novo peso do paciente: ");
+                    peso = in.nextDouble();
+
+                    if (lista.alterarPeso(peso, codigo)) 
+                        System.out.println("\nO peso do paciente foi alterado com sucesso!");
+
+                    else
+                        System.out.println("\nPeso não alterado.");
+                    break;
+
+                case 7:
+                    System.out.println("\fDigite o código do paciente: ");
+                    codigo = in.nextInt();
+
+                    System.out.println("\nDigite a nova altura do paciente: ");
+                    altura = in.nextDouble();
+
+                    if (lista.alterarAltura(altura, codigo))
+                        System.out.println("\nO peso do paciente foi alterado com sucesso!");
+
+                    else
+                        System.out.println("\nAltura não alterado.");
+                    break;
+
+                case 8:
+                    System.out.println("\fDigite o código do paciente: ");
+                    codigo = in.nextInt();
+
+                    System.out.println("\nDigite o novo sexo do paciente [F/M]: ");
+                    char novoSexo = in.next().charAt(0);
+
+                    if (lista.alterarSexo(novoSexo, codigo))
+                        System.out.println("\nO sexo do paciente foi alterado com sucesso!");
+                    else
+                        System.out.println("\nSexo não alterado.");
+                    break;
+
+                case 9:
+                    System.out.println("\fDigite o código do paciente: ");
+                    codigo = in.nextInt();
+
+                    Paciente paciente = lista.consultarPeloCodigo(codigo);
+                    if (paciente != null) 
+                        System.out.println("\nIMC do paciente " + paciente.getNome() + ": " + paciente.calcularIMC());
+
+                    else 
+                        System.out.println("\nPaciente não encontrado.");
+                    break;
+
+                case 10:
+                    System.out.println("\nSaindo...");
+                    break;
+
+                default:
+                    System.out.println("\nOpção inválida");
+                    break;
+            }
+        }
+    }
+
+    public static void menu() {
+        System.out.println(
+            "\n1. Cadastrar paciente: " + 
+            "\n2. Consultar paciente pelo nome: " + 
+            "\n3. Consultar paciente pelo código: " + 
+            "\n4. Listar pacientes acima de uma determinada idade: " + 
+            "\n5. Listar todos pacientes: " + 
+            "\n6. Alterar o peso de um paciente pelo código: "+ 
+            "\n7. Alterar a altura de um paciente pelo código: " + 
+            "\n8. Alterar o sexo de um paciente: " + 
+            "\n9. Mostrar o IMC de um paciente: " + 
+            "\n10. Sair. ");
+    }
+}
